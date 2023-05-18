@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comentarios de Lugares</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+  <div class="container">
+    <h1>Comentarios de Lugares</h1>
+
+    <div class="comment">
+      <div class="comment-image">
+        <img src="../../../assets/Alcala-de-Xivert_Alcossebre_Esglesia.jpg" alt="Lugar">
+      </div>
+      <div class="comment-content">
+        <h2>Nombre del Lugar</h2>
+        <p>Descripción del lugar</p>
+        <form [formGroup]="formComment" (ngSubmit)="addComentario()">
+          <textarea name="comment" placeholder="Escribe tu comentario" [(ngModel)]="newComment.mensaje"
+          formControlName="mensaje"></textarea>
+            <button type="submit">Publicar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="comment-section">
+      <h2>Comentarios de otras personas:</h2>
+      <div class="comment">
+        <div class="comment-avatar">
+          <img src="ruta-de-la-imagen-usuario.jpg" alt="Usuario">
+        </div>
+        <div class="comment-content">
+          <h3>Nombre del Usuario</h3>
+          <p>Comentario del usuario</p>
+        </div>
+      </div>
+
+      <!-- Puedes duplicar el código anterior para agregar más comentarios -->
+
+    </div>
+
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

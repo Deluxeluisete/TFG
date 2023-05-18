@@ -1,0 +1,22 @@
+@import "../../scss/screen.scss";
+.navbar {
+  background-color: #0646f6;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-item {
+  font-size: 1.2rem;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}

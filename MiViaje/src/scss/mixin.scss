@@ -1,0 +1,6 @@
+@mixin transiciones($property, $duration, $time: linear) {
+    // css3
+    -webkit-transition: $property $duration $time;
+    -moz-transition: $property $duration $time;
+    transition: $property $duration $time;
+}

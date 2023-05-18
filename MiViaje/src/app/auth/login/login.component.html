@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Deluxe Restaurant</title>
+  <meta name="description" content="Somos un gimnasio A1 dedicados a cuidar y mantener tu cuerpo en forma." />
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <!-- <link href="css/screen.css" rel="stylesheet" /> -->
+  <!-- <link href="assets/js/fancybox/jquery.fancybox.css" rel="stylesheet" /> -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+</head>
+<mv-menu-component></mv-menu-component>
+<body class="margin-si">
+
+  <div class="login-root">
+    <div class="contenedor">
+      <div class="loginbackground">
+        <div class="loginbackground-gridContainer">
+           <div class="primera-fila ">
+            <div></div>
+          </div>
+          <div class="segunda-fila">
+            <div></div>
+          </div>
+          <div class="tercera-fila">
+            <div></div>
+          </div>
+          <div class="cuarta-fila">
+            <div></div>
+          </div>
+          <div class="quinta-fila">
+            <div></div>
+          </div>
+          <div class="sexta-fila ">
+            <div></div>
+          </div>
+          <div class="septima-fila ">
+            <div></div>
+          </div>
+          <div class="octava-fila">
+            <div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedor-login ">
+        <div class="contenedor-sesion">
+          <h1><a>Inicia Sesion</a></h1>
+        </div>
+        <div>
+          <div class="formulario" >
+            <div class="titulo">
+              <span style="text-align: justify;">Inicia sesión en tu cuenta</span>
+              <form [formGroup]="formLogin" method="POST" role="form" (ngSubmit)="newLoginForm()">
+                <div class="field">
+                  <label style="text-align: justify;">Email</label>
+                  <input type="email" name="email" formControlName="email" [ngClass]="validClasses(emailControl, 'is-valid', 'is-invalid')" />
+                  <div class="invalid-feedback" *ngIf="emailControl.errors?.['required']">
+                    Email is required.
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="grid-mitad">
+                    <label style="text-align: justify;">Contraseña</label>
+                    <div class="reset-pass">
+                      <a href="#">Contraseña olvidada</a>
+                    </div>
+                  </div>
+                  <input type="password" name="password" formControlName="password" [ngClass]=" validClasses(contrasenaControl, 'is-valid' , 'is-invalid' )" />
+                  <div class="invalid-feedback" *ngIf="contrasenaControl.errors?.['required']">
+                    Password is required.
+                  </div>
+                </div>
+                <div class="field boton-enviar">
+                  <input type="submit" name="submit" value="Continuar " [disabled]="formLogin.invalid">
+
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+          <app-footer></app-footer>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
