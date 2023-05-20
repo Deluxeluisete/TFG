@@ -23,10 +23,7 @@ export class LoginService {
     return await this.loginModel.findOne({ email }).exec();
   }
   async insertar(crearLoginDto: LoginDto): Promise<Login> {
-    console.log('LLEGA5');
     const nuevaLogin = new this.loginModel(crearLoginDto);
-    console.log('LLEGA6');
-
     return await nuevaLogin.save();
   }
   async borrar(id: string): Promise<Login> {

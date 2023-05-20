@@ -16,7 +16,12 @@ import { scryptSync, randomBytes, timingSafeEqual } from 'crypto';
 @Controller('comentario')
 export class ComentarioController {
   constructor(private readonly comentarioService: ComentarioService) {}
-
+  @Get('')
+  async listarLogueados() {
+    const resultado = await this.comentarioService.listar();
+    console.log('hola ' + resultado);
+    return resultado;
+  }
   @Post('')
   async insertarUsuarios(@Res() res, @Body() body) {
     try {
