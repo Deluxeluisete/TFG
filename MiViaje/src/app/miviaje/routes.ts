@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { comentarioTematicaGuard } from './guards/comentario-tematica.guard';
 //import { leavePageGuard } from '../guards/leave-page.guard';
 //import { restaurantIdGuard } from './guards/restaurant-id.guard';
 //import { restaurantResolver } from './resolvers/restaurant.resolver';
@@ -63,11 +64,21 @@ export const MIVIAJE_ROUTES: Routes = [
     // },
   },
   {
-    path: 'comentarios',
+    path: 'comentarios/:tematica',
     loadComponent: () => import('./comentarios/comentarios.component').then(
       (m) => m.ComentariosComponent
     ),
-    // canActivate: [restaurantIdGuard],
+    //  canActivate: [comentarioTematicaGuard],
+    // resolve: {
+    //   restaurant: restaurantResolver,
+    // },
+  },
+  {
+    path: 'addLugar',
+    loadComponent: () => import('./add-lugar/add-lugar.component').then(
+      (m) => m.AddLugarComponent
+    ),
+    //  canActivate: [comentarioTematicaGuard],
     // resolve: {
     //   restaurant: restaurantResolver,
     // },

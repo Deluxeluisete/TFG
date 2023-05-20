@@ -3,5 +3,5 @@ export interface Comentario {
   id?: number;
   tematica: string;
   mensaje: string;
-  Usuario: User;
+  Usuario: User[];
 }

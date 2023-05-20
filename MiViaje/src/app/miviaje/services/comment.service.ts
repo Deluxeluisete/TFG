@@ -14,8 +14,8 @@ export class CommentService {
   private readonly USERS_REGISTER_URL = 'auth/register';
   private readonly USERS_LOGIN_URL = 'auth/login';
   constructor(private readonly http: HttpClient) {}
-  postUser() {
-    return this.http.get('http://localhost:3000/comentario');
+  getComentarios():any {
+    return this.http.get('comentario');
   }
   addComment(comment: Comentario): Observable<Comentario> {
     console.log("llega1")

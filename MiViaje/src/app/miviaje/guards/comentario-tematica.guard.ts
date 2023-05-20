@@ -1,0 +1,13 @@
+import { inject } from "@angular/core";
+import { CanActivateFn, ActivatedRouteSnapshot, Router } from "@angular/router";
+
+export const comentarioTematicaGuard: CanActivateFn = (
+  route: ActivatedRouteSnapshot
+) => {
+    const tematica = +route.params['tematica'];
+  console.log("Id recibida " + tematica);
+  if (isNaN(tematica) || tematica < 1) {
+    return inject(Router).createUrlTree(['/restaurant']);
+  }
+  return true;
+};

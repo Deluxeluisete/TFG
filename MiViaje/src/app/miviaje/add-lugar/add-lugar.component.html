@@ -1,0 +1,33 @@
+<form [formGroup]="formLugar" class="mt-4" (ngSubmit)="addLugar()">
+  <div class="mb-3">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="newLugar.nombre" formControlName="nombre"
+      [ngClass]="validClasses(nombreControl, 'is-valid', 'is-invalid')" placeholder="Enter name" />
+    <div class="invalid-feedback" *ngIf="nombreControl.errors?.['required']">
+      Name is required and can only contain letters and spaces.
+    </div>
+    <div class="invalid-feedback" *ngIf="nombreControl.errors?.['pattern']">
+      Name format is not correct.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="descripcion">Description</label>
+    <textarea class="form-control" id="descripcion" name="descripcion" rows="3" [(ngModel)]="newLugar.descripcion"
+      formControlName="descripcion" [ngClass]="validClasses(descripcionControl, 'is-valid', 'is-invalid')"
+      placeholder="Descripcion"></textarea>
+    <div class="invalid-feedback" *ngIf="descripcionControl.errors?.['required']">
+      Description is required.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="image">Image</label>
+    <input type="file" class="form-control" id="image" name="image" #fileImage  (change)="changeImage(fileImage)"
+      formControlName="imagen" [ngClass]="validClasses(imagenControl, 'is-valid', 'is-invalid')" />
+    <div class="invalid-feedback" *ngIf="imagenControl.errors?.['required']">
+      Image is required.
+    </div>
+  </div>
+  <img [src]="newLugar.imagen" [ngClass]="{ 'd-none': !newLugar.imagen }" class="img-thumbnail mb-3" style="width:300px; height:300px;" />
+    <button type="submit" [disabled]="formLugar.invalid" class="btn btn-primary">Create</button>
+
+</form>

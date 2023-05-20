@@ -1,6 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  NonNullableFormBuilder,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { FooterComponent } from 'src/app/footer/footer.component';
 import { MenuComponent } from 'src/app/menu-component/menu.component';
 import { CommentService } from '../services/comment.service';
@@ -10,15 +16,17 @@ import { User } from 'src/app/auth/interfaces/user';
 @Component({
   standalone: true,
   imports: [FooterComponent, MenuComponent, CommonModule, ReactiveFormsModule],
-    selector: 'app-comentarios-component',
+  selector: 'app-comentarios-component',
   templateUrl: './comentarios.component.html',
   styleUrls: ['./comentarios.component.scss'],
 })
-export class ComentariosComponent  implements OnInit {
-    newComment: Comentario;
-    mensajeControl!: FormControl<string>;
-    formComment!: FormGroup;
-    saved = false;
+export class ComentariosComponent implements OnInit {
+  newComment: Comentario;
+  mensajeControl!: FormControl<string>;
+  formComment!: FormGroup;
+  saved = false;
+  comentarios: Comentario[] = [];
+  tematica!: string;
 
   constructor(
     private readonly commentService: CommentService,
@@ -30,9 +38,15 @@ export class ComentariosComponent  implements OnInit {
   }
   usuario = JSON.parse(localStorage.getItem('user')!);
   ngOnInit(): void {
+    this.tematica = this.route.snapshot.params['tematica'];
     this.resetComment();
     this.mensajeControl = this.fb.control('', [Validators.required]);
-
+    this.commentService.getComentarios().subscribe({
+      next: (cm: Comentario[]) => (this.comentarios = cm),
+      error: (error: any) => console.log(error),
+      complete: () => {},
+    });
+    console.log(this.comentarios);
     this.formComment = this.fb.group({
       mensaje: this.mensajeControl,
     });
@@ -41,16 +55,16 @@ export class ComentariosComponent  implements OnInit {
   resetComment() {
     return {
       mensaje: '',
-      tematica:'',
-      Usuario: this.usuario
+      tematica: '',
+      Usuario: this.usuario,
     };
   }
 
   addComentario() {
     this.newComment.mensaje = this.mensajeControl.value;
-    this.newComment.tematica="Alcala";
-    this.newComment.Usuario=this.usuario;
-
+    this.newComment.tematica = this.tematica;
+    this.newComment.Usuario = this.usuario;
+    console.log(this.newComment)
     this.commentService.addComment(this.newComment).subscribe((user) => {
       this.saved = true;
       this.router.navigate(['/auth/login']);
