@@ -13,6 +13,8 @@ import { CommentService } from '../services/comment.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Comentario } from '../interfaces/comment';
 import { User } from 'src/app/auth/interfaces/user';
+import { LugarService } from '../services/lugar.service';
+import { Lugar } from '../interfaces/lugar';
 @Component({
   standalone: true,
   imports: [FooterComponent, MenuComponent, CommonModule, ReactiveFormsModule],
@@ -22,19 +24,23 @@ import { User } from 'src/app/auth/interfaces/user';
 })
 export class ComentariosComponent implements OnInit {
   newComment: Comentario;
+  newLugar: Lugar;
   mensajeControl!: FormControl<string>;
   formComment!: FormGroup;
   saved = false;
   comentarios: Comentario[] = [];
+  lugares: Lugar[] = [];
   tematica!: string;
 
   constructor(
     private readonly commentService: CommentService,
+    private readonly lugarService: LugarService,
     private readonly router: Router,
     private route: ActivatedRoute,
     private fb: NonNullableFormBuilder
   ) {
     this.newComment = this.resetComment();
+    this.newLugar = this.resetLugar();
   }
   usuario = JSON.parse(localStorage.getItem('user')!);
   ngOnInit(): void {
@@ -46,12 +52,33 @@ export class ComentariosComponent implements OnInit {
       error: (error: any) => console.log(error),
       complete: () => {},
     });
-    console.log(this.comentarios);
+    this.lugarService.getLugars().subscribe({
+      next: (lg: Lugar[]) => (this.lugares = lg),
+      error: (error: any) => console.log(error),
+      complete: () => {
+        console.log(this.lugares);
+        this.convertStringToBitmap(this.lugares[2].imagen);
+
+      },
+    });
     this.formComment = this.fb.group({
       mensaje: this.mensajeControl,
     });
   }
-
+  convertStringToBitmap(imagenBase64: string) {
+     imagenBase64 = this.lugares[2].imagen;
+    const bytes = atob(imagenBase64.split(',')[1]);
+    // Crear un ArrayBuffer y una vista de 8 bits
+    const buffer = new ArrayBuffer(bytes.length);
+    const view = new Uint8Array(buffer);
+    // Copiar los bytes en la vista
+    for (let i = 0; i < bytes.length; i++) {
+      view[i] = bytes.charCodeAt(i);
+    }
+    // Crear un objeto Blob a partir del ArrayBuffer
+    const blob = new Blob([view], { type: 'image/jpeg' }); // Asegúrate de especificar el tipo correcto de imagen
+    this.newLugar.imagen = URL.createObjectURL(blob);
+  }
   resetComment() {
     return {
       mensaje: '',
@@ -59,12 +86,18 @@ export class ComentariosComponent implements OnInit {
       Usuario: this.usuario,
     };
   }
-
+  resetLugar() {
+    return {
+      nombre: '',
+      descripcion: '',
+      imagen: '',
+    };
+  }
   addComentario() {
     this.newComment.mensaje = this.mensajeControl.value;
     this.newComment.tematica = this.tematica;
     this.newComment.Usuario = this.usuario;
-    console.log(this.newComment)
+    console.log(this.newComment);
     this.commentService.addComment(this.newComment).subscribe((user) => {
       this.saved = true;
       this.router.navigate(['/auth/login']);
