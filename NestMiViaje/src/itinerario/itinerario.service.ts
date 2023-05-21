@@ -26,7 +26,7 @@ export class ItinerarioService {
     console.log('LLEGA5');
     const nuevaLogin = new this.loginModel(crearLoginDto);
     console.log('LLEGA6');
-
+    console.log(nuevaLogin);
     return await nuevaLogin.save();
   }
   async borrar(id: string): Promise<Itinerario> {

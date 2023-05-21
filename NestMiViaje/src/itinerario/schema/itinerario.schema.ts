@@ -13,7 +13,6 @@ export const ItinerarioSchema = new mongoose.Schema({
   telefono: {
     type: String,
     match: /^\+(?:[0-9] ?){6,14}[0-9]$/,
-    unique: true,
   },
   destino: {
     type: String,
