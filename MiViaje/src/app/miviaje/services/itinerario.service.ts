@@ -11,12 +11,12 @@ import { ItinerarioResponse } from '../interfaces/responses';
   providedIn: 'root',
 })
 export class ItinerarioService {
-  private readonly USERS_REGISTER_URL = 'auth/register';
-  private readonly USERS_LOGIN_URL = 'auth/login';
   constructor(private readonly http: HttpClient) {}
-  postUser() {
-    return this.http.get('http://localhost:3000/auth/logina');
+
+  getItinerarioByEmail(email:String):any {
+    return this.http.get('itinerario/' + email);
   }
+
   addItinerario(itinerario: Itinerario): Observable<Itinerario> {
     return this.http
       .post<ItinerarioResponse>('itinerario', itinerario)

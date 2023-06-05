@@ -2,150 +2,99 @@
 <html>
 
 <head>
-    <title>Deluxe Restaurant</title>
-    <meta name="description" content="Somos un gimnasio A1 dedicados a cuidar y mantener tu cuerpo en forma." />
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>Deluxe Restaurant</title>
+  <meta name="description" content="Somos un gimnasio A1 dedicados a cuidar y mantener tu cuerpo en forma." />
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 
 </head>
 <mv-menu-component></mv-menu-component>
 
 <body class="margin-si">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <a class="navbar-brand" href="index.html">
-            <img src="assets/images/letra-k-removebg-preview.png" width="30" height="30" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item ">
-                    <a class="nav-link text-light" href="index.html">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="menus.html">Menus</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="chefs.html" id="navbarDropdown" role="button"
-                        data-toggle="dropdown">
-                        Personal
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="chefs.html">Cocineros</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="chefs.html">Camareros</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="chefs.html">Nutricionistas</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="carrito.html" id="navbarDropdown" role="button"
-                        data-toggle="dropdown">
-                        Mi pedido
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="carrito.html">Menus</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="carrito2.html">Total</a>
 
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="membresia.html">Membresia</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="contacto.html">Contacto</a>
-                </li>
+  <div class="container " style="  text-align: justify">
+    <h1 class="text-center display-4">Contacto</h1>
+    <hr class="w-25 mx-auto">
+    <div class="row justify-content-center mb-3">
+      <div class="col-lg-6">
+        <div class="form-contacto p-3 bg-light rounded">
+          <form [formGroup]="formContacto" class="mt-4" (ngSubmit)="enviarMail()">
+            <h3 class="text-center mb-3 h">
+              Para mejorar su experiencia de viaje, contáctenos
+            </h3>
 
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <li>
-                    <form class="form-inline  ">
-                        <input class="form-control mr-sm-2" type="search" placeholder="">
-                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </nav>
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input name="nombre" id="nombre" [(ngModel)]="contactar.nombre" formControlName="nombre"
+                [ngClass]="validClasses(nombreControl, 'is-valid', 'is-invalid')" type="text" class="form-control"
+                placeholder="Ingrese su nombre" />
+              <div class="invalid-feedback" *ngIf="emailControl.errors?.['required']">
+                El nombre es necesario
+              </div>
 
-    <div class="container ">
-        <h1 class="text-center display-4">Contacto</h1>
-        <hr class="w-25 mx-auto">
-        <div class="row justify-content-center mb-3">
-          <div class="col-lg-6">
-            <div class="form-contacto p-3 bg-light rounded">
-              <form>
-                <h3 class="text-center mb-3 h">
-                    Para mejorar su experiencia de viaje, contáctenos
-                </h3>
-
-                <div class="form-group">
-                  <label for="nombre">Nombre</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nombre"
-                    placeholder="Ingrese su nombre"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="correo">Correo</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="correo"
-                    placeholder="Ingrese su correo"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="motivo">Motivo</label>
-                  <select class="form-control" id="motivo" >
-                    <option hidden selected>Seleccione una opcion</option>
-                    <option>Reclamo</option>
-                    <option>Consulta</option>
-                    <option>Otro</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="mensaje">Mensaje</label>
-                  <textarea
-                    class="form-control"
-                    id="mensaje"
-                    rows="3"
-                    placeholder="Ingrese su mensaje"
-                  ></textarea>
-                </div>
-
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
-              </form>
             </div>
-          </div>
+
+            <div class="form-group">
+              <label for="correo">Correo</label>
+              <input name="email" id="email" [(ngModel)]="contactar.email" formControlName="email"
+                [ngClass]="validClasses(emailControl, 'is-valid', 'is-invalid')" type="email" class="form-control"
+                placeholder="Ingrese su correo" />
+              <div class="invalid-feedback" *ngIf="emailControl.errors?.['required']">
+                El email es necesario
+              </div>
+              <div class="invalid-feedback" *ngIf="emailControl.errors?.['pattern']">
+                El email debe ser un email valido.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="motivo">Motivo</label>
+              <select class="form-control" id="motivo" name="motivo" [(ngModel)]="contactar.motivo"
+                formControlName="motivo" [ngClass]="validClasses(motivoControl, 'is-valid', 'is-invalid')">
+                <option hidden selected>Seleccione una opcion</option>
+                <option>Reclamo</option>
+                <option>Consulta</option>
+                <option>Otro</option>
+              </select>
+              <div class="invalid-feedback" *ngIf="emailControl.errors?.['required']">
+                El motivo es necesario
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea name="mensaje" [(ngModel)]="contactar.mensaje" formControlName="mensaje"
+                [ngClass]="validClasses(mensajeControl, 'is-valid', 'is-invalid')" class="form-control" id="mensaje"
+                rows="3" placeholder="Ingrese su mensaje"></textarea>
+                <div class="invalid-feedback" *ngIf="emailControl.errors?.['required']">
+                  El mensaje es necesario
+                </div>
+              </div>
+
+            <div class="text-center">
+              <button type="submit" [disabled]="formContacto.invalid" class="btn btn-primary">Enviar</button>
+            </div>
+          </form>
         </div>
       </div>
+    </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-    </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>

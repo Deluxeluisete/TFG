@@ -1,1 +1,16 @@
 @import "../../../scss/screen.scss";
+.custom-thumbnail.img-thumbnail {
+  border-width: 1px !important; /* Ajusta el ancho del borde según tus necesidades */
+}
+.img-thumbnail-custom {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: 0.18rem;
+  line-height: 1.5;
+  background-color: #0a62ef;
+  border: 1px solid #e1dee6;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}

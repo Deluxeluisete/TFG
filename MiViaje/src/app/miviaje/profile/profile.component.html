@@ -29,7 +29,7 @@
               <p class="card-text text-muted">Esta es la descripcion de mi perfil , me encanta viajar y
                 conocer caminos rurales.</p>
               <div class="text-right">
-                <button class="my-button">Editar</button>
+                <button class="my-button" [routerLink]="['/miviaje/editar-perfil']">Editar</button>
               </div>
             </div>
           </div>
@@ -61,12 +61,12 @@
           </div>
           <div class="card mb-4">
             <div class="card-body">
-              <h5 class="card-title">Tus Viajes</h5>
+              <h5 class="card-title">Mis Viajes</h5>
               <p class="card-text mb-2">Los viajes son una parte muy importante de nuestra
                 vida , es por eso que hemos recopilado para ti los viajes que tienes programados o que
                 hayas realizado con nosotros</p>
               <div class="text-right">
-                <button class="my-button">Ver</button>
+                <button class="my-button" [routerLink]="['/miviaje/veritinerarios']">Ver</button>
               </div>
             </div>
           </div>
@@ -77,8 +77,6 @@
 
     <!-- Font Awesome icons -->
     <script src="https://kit.fontawesome.com/7b312f0d8e.js" crossorigin="anonymous"></script>
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>

@@ -45,6 +45,7 @@ export class ComentariosComponent implements OnInit {
   usuario = JSON.parse(localStorage.getItem('user')!);
   ngOnInit(): void {
     this.tematica = this.route.snapshot.params['tematica'];
+
     this.resetComment();
     this.mensajeControl = this.fb.control('', [Validators.required]);
     this.commentService.getComentarios().subscribe({
@@ -56,9 +57,14 @@ export class ComentariosComponent implements OnInit {
       next: (lg: Lugar[]) => (this.lugares = lg),
       error: (error: any) => console.log(error),
       complete: () => {
-        console.log(this.lugares);
-        this.convertStringToBitmap(this.lugares[2].imagen);
-
+        for (const lugar of this.lugares) {
+          console.log(lugar.nombre)
+          if (lugar.nombre == this.tematica) {
+            this.newLugar.nombre=lugar.nombre;
+            this.newLugar.descripcion=lugar.descripcion;
+            this.convertStringToBitmap(lugar.imagen);
+          }
+        }
       },
     });
     this.formComment = this.fb.group({
@@ -76,7 +82,7 @@ export class ComentariosComponent implements OnInit {
       view[i] = bytes.charCodeAt(i);
     }
     // Crear un objeto Blob a partir del ArrayBuffer
-    const blob = new Blob([view], { type: 'image/jpeg' }); // Asegúrate de especificar el tipo correcto de imagen
+    const blob = new Blob([view], { type: 'image/jpeg' });
     this.newLugar.imagen = URL.createObjectURL(blob);
   }
   resetComment() {

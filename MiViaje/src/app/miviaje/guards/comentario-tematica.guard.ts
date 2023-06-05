@@ -7,7 +7,7 @@ export const comentarioTematicaGuard: CanActivateFn = (
     const tematica = +route.params['tematica'];
   console.log("Id recibida " + tematica);
   if (isNaN(tematica) || tematica < 1) {
-    return inject(Router).createUrlTree(['/restaurant']);
+    return inject(Router).createUrlTree(['/viaje']);
   }
   return true;
 };

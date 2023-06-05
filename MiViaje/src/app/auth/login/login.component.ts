@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private fb: NonNullableFormBuilder,
-    private readonly usersService: UserService,
+    private readonly usersService: UserService
   ) {
     this.newUserLogin = this.resetUser();
   }
@@ -58,23 +58,23 @@ export class LoginComponent implements OnInit {
     this.newUserLogin.contrasena = this.contrasenaControl.value;
     this.newUserLogin.email = this.emailControl.value;
     const save$ = this.usersService.login(this.newUserLogin);
-    this.usersService.getUsuario(this.newUserLogin.email).subscribe({
-      next: (usuario) => (this.loginAngular = usuario),
-      error: (error) => console.log(error),
-      complete: () => console.log('Restaurants loading complete!'),
-    });
-    console.log(this.loginAngular + "sale")
-    this.usersService.getUsuario(this.newUserLogin.email).subscribe({
+
+    this.usersService.getUsuario(this.newUserLogin.email,this.newUserLogin.contrasena).subscribe({
       next: (usuario) => {
         this.loginAngular = usuario;
-        console.log(this.loginAngular?.email +"aaaa");
-        localStorage.setItem('user', JSON.stringify(this.loginAngular));
+
         // const usuario3 = JSON.parse(localStorage.getItem('user')!);
         // const nombre = usuario.nombre;
-
       },
       error: (error) => console.log(error),
-      complete: () => console.log('Usuario loading complete!'),
+      complete: () => {
+
+
+        if (this.loginAngular?.email !== null && this.loginAngular?.email !== undefined && this.loginAngular.email !='') {
+          localStorage.setItem('user', JSON.stringify(this.loginAngular));
+          this.router.navigate(['/miviaje']);
+        }
+      },
     });
     // save$.subscribe((user) => {
     //   this.usersService.getUsuario(this.newUserLogin.email).subscribe(
@@ -89,9 +89,6 @@ export class LoginComponent implements OnInit {
     //   console.log('angular recibe ');
     //   this.router.navigate(['/miviaje']);
     // });
-
-    this.router.navigate(['/miviaje']);
-
   }
 
   // this.gptService.login(this.newUserLogin).subscribe(

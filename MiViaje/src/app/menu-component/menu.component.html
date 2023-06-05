@@ -35,7 +35,27 @@
               <a class="nav-link text-light ml-2" [routerLink]="['/miviaje/contacto']">Contacto</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link text-light ml-2" [routerLink]="['/miviaje/perfil']">Mi Perfil</a>
+              <a class="nav-link text-light ml-2" [routerLink]="['/miviaje/perfil']" *ngIf="usuario">Mi Perfil</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-light ml-2"  (click)="logout()" *ngIf="usuario">Cerrar Sesión</a>
+          </li>
+
+          <li class="nav-item dropdown ml-2" *ngIf="usuario && usuario.admin == true">
+              <a class="nav-link text-light ml-2 dropdown-toggle" [routerLink]="['/miviaje/addLugar']" id="navbarDropdown" role="button"
+              data-toggle="dropdown"> Admin</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" [routerLink]="['/miviaje/addLugar']">Añadir Lugar</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" [routerLink]="['/miviaje/verLugar']">Ver Lugares</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item"  [routerLink]="['/miviaje/benicassim']">Benicassim</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" [routerLink]="['/miviaje/peñiscola']">Peñiscola</a>
+            </div>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-light ml-2" [routerLink]="['/auth/login']" *ngIf="!usuario">Inicio Sesión</a>
           </li>
 
       </ul>

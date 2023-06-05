@@ -17,7 +17,7 @@ import {
 
 @Component({
   standalone: true,
-  imports: [FooterComponent,MenuComponent,CommonModule,
+  imports: [FooterComponent,MenuComponent,CommonModule,RouterLink,
     ReactiveFormsModule,],
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -28,8 +28,12 @@ export class ProfileComponent implements OnInit {
   user!: User;
    usuario = JSON.parse(localStorage.getItem('user')!);
 
-  constructor(private readonly router: Router, private route: ActivatedRoute) {}
-  ngOnInit(): void {
+   constructor(
+    private readonly router: Router,
+    private route: ActivatedRoute,
+    private fb: NonNullableFormBuilder
+  ) {
+  }  ngOnInit(): void {
     console.log(this.usuario.id)
     console.log(this.usuario.nombre)
 

@@ -1,9 +1,6 @@
-import { tap } from 'rxjs/operators';
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, delay, map, Observable, throwError } from 'rxjs';
-
 import { LugarResponse } from '../interfaces/responses';
 import { Lugar } from '../interfaces/lugar';
 
@@ -11,8 +8,6 @@ import { Lugar } from '../interfaces/lugar';
   providedIn: 'root',
 })
 export class LugarService {
-  private readonly USERS_REGISTER_URL = 'auth/register';
-  private readonly USERS_LOGIN_URL = 'auth/login';
   constructor(private readonly http: HttpClient) {}
   getLugars():any {
     return this.http.get('lugar');
@@ -23,5 +18,9 @@ export class LugarService {
       .post<LugarResponse>('lugar', lugar)
       .pipe(map((resp) => resp.lugar));
   }
+  borrarLugar(lugar: Lugar): any {
+      return this.http.delete( "lugar/" +lugar.nombre );
 
+
+    }
 }

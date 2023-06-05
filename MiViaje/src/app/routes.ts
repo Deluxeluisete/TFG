@@ -10,13 +10,9 @@ export const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('./miviaje/routes').then((m) => m.MIVIAJE_ROUTES),
   },
-  // {
-  //   path: 'users',
-  //   loadChildren: () =>
-  //     import('./profile/routes').then((m) => m.PROFILE_ROUTES),
-  // },
+
   // Default route (empty) -> Redirect to welcome page
-  { path: '', redirectTo: '/miviaje/castellon', pathMatch: 'full' },
+  { path: '', redirectTo: '/miviaje', pathMatch: 'full' },
   // Doesn't match any of the above
-  { path: '**', redirectTo: '/miviaje/a' },
+  { path: '**', redirectTo: '/miviaje' },
 ];

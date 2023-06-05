@@ -11,8 +11,6 @@ import { Comentario } from '../interfaces/comment';
   providedIn: 'root',
 })
 export class CommentService {
-  private readonly USERS_REGISTER_URL = 'auth/register';
-  private readonly USERS_LOGIN_URL = 'auth/login';
   constructor(private readonly http: HttpClient) {}
   getComentarios():any {
     return this.http.get('comentario');

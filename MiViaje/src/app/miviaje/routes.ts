@@ -1,14 +1,16 @@
 import { Routes } from '@angular/router';
-import { comentarioTematicaGuard } from './guards/comentario-tematica.guard';
-//import { leavePageGuard } from '../guards/leave-page.guard';
-//import { restaurantIdGuard } from './guards/restaurant-id.guard';
-//import { restaurantResolver } from './resolvers/restaurant.resolver';
 
 export const MIVIAJE_ROUTES: Routes = [
   {
     path: '',
     loadComponent: () => import('./home/home.component').then(
       (m) => m.HomeComponent
+    ),
+  },
+  {
+    path: 'editar-perfil',
+    loadComponent: () => import('../auth/register/register.component').then(
+      (m) => m.RegisterComponent
     ),
   },
   {
@@ -40,47 +42,44 @@ export const MIVIAJE_ROUTES: Routes = [
     loadComponent: () => import('./alcossebre-component/alcossebre-component.component').then(
       (m) => m.AlcossebreComponentComponent
     ),
-    //canDeactivate: [leavePageGuard],
   },
   {
     path: 'peñiscola',
     loadComponent: () => import('./peniscola-component/peniscola-component.component').then(
       (m) => m.PeniscolaComponentComponent
     ),
-    // canDeactivate: [leavePageGuard],
-    // canActivate: [restaurantIdGuard],
-    // resolve: {
-    //   restaurant: restaurantResolver,
-    // }
   },
   {
     path: 'castellon',
     loadComponent: () => import('./castellon-component/castellon-component.component').then(
       (m) => m.CastellonComponentComponent
     ),
-    // canActivate: [restaurantIdGuard],
-    // resolve: {
-    //   restaurant: restaurantResolver,
-    // },
+
   },
   {
     path: 'comentarios/:tematica',
     loadComponent: () => import('./comentarios/comentarios.component').then(
       (m) => m.ComentariosComponent
     ),
-    //  canActivate: [comentarioTematicaGuard],
-    // resolve: {
-    //   restaurant: restaurantResolver,
-    // },
+
   },
   {
     path: 'addLugar',
     loadComponent: () => import('./add-lugar/add-lugar.component').then(
       (m) => m.AddLugarComponent
     ),
-    //  canActivate: [comentarioTematicaGuard],
-    // resolve: {
-    //   restaurant: restaurantResolver,
-    // },
+
+  },
+  {
+    path: 'verLugar',
+    loadComponent: () => import('./ver-lugar/ver-lugar.component').then(
+      (m) => m.VerLugarComponent
+    ),
+  },
+  {
+    path: 'veritinerarios',
+    loadComponent: () => import('./ver-itinerarios/ver-itinerarios.component').then(
+      (m) => m.VerItinerariosComponent
+    ),
   },
 ];

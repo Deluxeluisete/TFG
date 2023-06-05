@@ -1,0 +1,14 @@
+<div class="comment-section">
+  <h2>Lugares almacenados en la web:</h2>
+  <div  *ngFor="let lg of lugares; let i = index">
+    <div class="comment">
+    <div class="comment-avatar">
+       <img src="{{lg.imagen}}" alt="Usuario">
+    </div>
+    <div class="comment-content">
+        <h3>{{ lg.nombre }}</h3>
+      <p>{{lg.descripcion}}</p>
+      <button (click)="borrar(i)">Delete</button>
+    </div>
+  </div>
+</div>

@@ -58,12 +58,11 @@
       </div>
       <div class="form-group">
         <label for="destino">Destino</label>
-        <select class="form-control" id="destino" [(ngModel)]="newItinerario.destino" formControlName="destino  ">
-          <option>Miami</option>
-          <option>Nueva York</option>
-          <option>Los Ángeles</option>
-          <option>San Francisco</option>
-          <option>Las Vegas</option>
+        <select class="form-control" id="destino" [(ngModel)]="newItinerario.destino" formControlName="destino">
+          <option>Alcossebre</option>
+          <option>Castellón</option>
+          <option>Benicassim</option>
+          <option>Peñiscola</option>
         </select>
       </div>
       <div class="form-group">
@@ -85,10 +84,6 @@
           La fecha de fin de viaje es necesaria
         </div>
       </div>
-      <!-- <div class="form-group">
-                <label for="precio">Precio máximo</label>
-                <input type="range" class="form-control-range" id="precio" min="0" max="10000" step="10">
-            </div> -->
       <button type="submit"  class="btn btn-primary">Enviar</button>
     </form>
   </div>

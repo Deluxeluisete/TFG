@@ -52,7 +52,9 @@
           </div>
         </div>
       <div class="form-group">
-        <input type="text" class="form-control item" id="email" placeholder="Email" [(ngModel)]="newUser.email"
+        <input type="text" class="form-control item" id="email" placeholder="Email" [(ngModel)]="newUser.email" readonly *ngIf="edit"
+        formControlName="email" [ngClass]="validClasses(emailControl, 'is-valid', 'is-invalid')">
+        <input type="text" class="form-control item" id="email" placeholder="Email" [(ngModel)]="newUser.email" *ngIf="!edit"
           formControlName="email" [ngClass]="validClasses(emailControl, 'is-valid', 'is-invalid')">
 
           <div class="invalid-feedback" *ngIf="emailControl.errors?.['required']">
@@ -74,7 +76,8 @@
           </div>
         </div>
       <div class="form-group">
-        <input type="text" class="form-control item" id="birth-date" placeholder="Fecha de nacimiento" [(ngModel)]="newUser.nacimiento" formControlName="nacimiento">
+        <input type="text" class="form-control item" id="birth-date" placeholder="Fecha de nacimiento" *ngIf="edit"  [(ngModel)]="fecha" formControlName="nacimiento">
+        <input type="text" class="form-control item" id="birth-date" placeholder="Fecha de nacimiento" *ngIf="!edit" [(ngModel)]="newUser.nacimiento" formControlName="nacimiento">
 
         <div class="invalid-feedback" *ngIf="nacimientoControl.errors?.['required']">
           La fecha es necesaria

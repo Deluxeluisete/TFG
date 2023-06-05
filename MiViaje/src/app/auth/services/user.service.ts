@@ -17,13 +17,15 @@ export class UserService {
   private readonly USERS_REGISTER_URL = 'auth/register';
   private readonly USERS_LOGIN_URL = 'auth/login';
   constructor(private readonly http: HttpClient) {}
-  postUser() {
-    return this.http.get('http://localhost:3000/auth/logina');
-  }
+
   addUser(user: User): Observable<User> {
     return this.http
       .post<UserResponse>('auth/logina', user)
       .pipe(map((resp) => resp.user));
+  }
+  updateUser(user: User): Observable<User> {
+    return this.http.post<User>('auth/actualizausuario', user);
+
   }
   getMe(): Observable<User> {
     return this.http.get<UserResponse>('users/me').pipe(
@@ -94,33 +96,14 @@ export class UserService {
       })
     );
   }
-  getUsuario(email: string): Observable<User> {
+  getUsuario(email: string,contrasena: string): Observable<User> {
     const body = { email };
-    return this.http.get<User>('auth/loginu', { params: { email } });
+    return this.http.get<User>('auth/loginu', { params: { email,contrasena } });
   }
 
-
-  // logingtp(user: UserLogin): Observable<User> {
-  //   return this.http.post<any>(this.USERS_LOGIN_URL, user).pipe(
-  //     map(response => response.resultado),
-  //     tap(user => {
-  //       localStorage.setItem('user', JSON.stringify(user));
-  //       this.currentUserSubject.next(user);
-  //     })
-  //   );
-  // }
   login(user: UserLogin): Observable<User> {
     console.log('entro1');
     return this.http.post<User>('auth/loginu', user)
-    // .pipe(
-    //   map((token) => {
-    //     console.log('entro2');
-    //     console.log(token.accessToken);
-    //     localStorage.setItem('token', token.accessToken);
-
-    //     return token;
-    //   })
-    // );
   }
 
   logout() {
@@ -133,8 +116,5 @@ export class UserService {
     return token !== null;
   }
 
-  getUser(): any {
-    const userJson = localStorage.getItem('user');
-    return userJson ? JSON.parse(userJson) : null;
-  }
+
 }

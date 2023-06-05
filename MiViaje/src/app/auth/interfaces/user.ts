@@ -6,6 +6,7 @@ export interface User {
   email: string;
   telefono: string;
   nacimiento?: Date;
+  admin:Boolean;
 }
 
 export interface UserLogin {

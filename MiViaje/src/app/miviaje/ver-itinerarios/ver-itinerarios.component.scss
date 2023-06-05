@@ -1,0 +1,72 @@
+@import "../../../scss/screen.scss";
+
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  margin-bottom: 200px;
+}
+
+html{
+  background-color: #f8f9fa;
+
+}
+main {
+  padding: 20px;
+}
+
+.itinerarios {
+  margin-bottom: 60px;
+}
+
+.itinerario {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.itinerario .titulo {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.itinerario .fecha {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.itinerario .descripcion {
+  font-size: 14px;
+}
+
+/* Estilos para itinerarios antiguos */
+.itinerario.antiguo {
+  background-color: #e9ecef;
+}
+
+/* Estilos para itinerarios futuros */
+.itinerario.futuro {
+  background-color: #d1ecf1;
+}
+/* Resto de estilos */
+
+.itinerario {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.itinerario .titulo {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.itinerario .fecha {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.itinerario .descripcion {
+  font-size: 14px;
+}

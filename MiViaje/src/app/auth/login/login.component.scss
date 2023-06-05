@@ -70,3 +70,147 @@ input[type="submit"] {
   align-items: center;
   margin: 0;
 }
+
+.contenedor-login {
+  box-sizing: border-box;
+  padding-top: 24px;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  flex-grow: 1;
+  z-index: 9;
+
+  .contenedor-sesion {
+      box-sizing: border-box;
+      padding-top: 48px;
+      padding-bottom: 24px;
+      display: flex;
+      -ms-flex-pack: center;
+      justify-content: center;
+  }
+
+  div {
+
+      .formulario {
+          margin: auto;
+          width: 100%;
+          max-width: 448px;
+          background: white;
+          border-radius: 4px;
+          box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+
+          .titulo {
+              padding: 48px;
+
+              span {
+                  padding-bottom: 15px;
+              }
+
+              form {
+                  .field {
+                      padding-bottom: 24px;
+
+
+                  }
+
+                  .boton-enviar {
+                      padding-bottom: 24px;
+                  }
+              }
+          }
+      }
+  }
+}
+
+.login-root {
+  background: #fff;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  .contenedor {
+      box-sizing: border-box;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      min-height: 100vh;
+      flex-grow: 1;
+
+      .loginbackground {
+          min-height: 692px;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          top: 0;
+          z-index: 0;
+          overflow: hidden;
+          // background-color: #ffffff;
+          padding-top: 64px;
+
+          .loginbackground-gridContainer {
+              @each $numero in $numeros {
+                  .#{nth($filas, $numero)}-fila {
+                      box-sizing: border-box;
+                      display: flex;
+                      grid-area: nth($grid-area, $numero);
+
+                      div {
+
+                          box-sizing: border-box;
+                          flex-grow: 1;
+
+                          @if $numero==1 {
+                              background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%);
+                          }
+
+                          @else if $numero==2 or $numero==8 {
+                              box-shadow: inset 0 0 0 2px #e3e8ee;
+                              animation: $segunda-animacion;
+                          }
+
+                          @else if $numero==3 {
+                              background-color: #212d63;
+                          }
+
+                          @else if $numero==4 or $numero==5 or $numero==6 or $numero==7 {
+                              z-index: 0;
+                              background-color: nth($background-color, $numero - 3);
+                              animation: nth($animaciones, $numero - 3);
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+}
+
+@keyframes animationLeftRight {
+  0% {
+      transform: translateX(0px);
+  }
+
+  50% {
+      transform: translateX(1000px);
+  }
+
+  100% {
+      transform: translateX(0px);
+  }
+}
+
+@keyframes animationRightLeft {
+  0% {
+      transform: translateX(0px);
+  }
+
+  50% {
+      transform: translateX(-1000px);
+  }
+
+  100% {
+      transform: translateX(0px);
+  }
+}

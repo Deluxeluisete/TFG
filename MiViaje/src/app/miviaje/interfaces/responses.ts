@@ -1,4 +1,5 @@
 import { Comentario } from "./comment";
+import { Contacto } from "./contacto";
 import { Itinerario } from "./itinerario";
 import { Lugar } from "./lugar";
 
@@ -24,7 +25,10 @@ export interface LugaresResponse {
 export interface LugarResponse {
   lugar: Lugar;
 }
+export interface ContactosResponse {
+  contacto: Contacto[];
+}
 
-// export interface TokenResponse {
-//   accessToken: string;
-// }
+export interface ContactoResponse {
+  contacto: Contacto;
+}
