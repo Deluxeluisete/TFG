@@ -1,1 +1,18 @@
 @import "../../../scss/screen.scss";
+h3{
+  color: #0a62ef;
+}
+h2{
+  color: #0a62ef;
+
+}
+img {
+  border: 2px solid gray;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  @include transiciones(transform, 0.4s);
+
+}
+.img-comida:hover {
+  transform: scale(1.1);
+}

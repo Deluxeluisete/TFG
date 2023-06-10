@@ -26,7 +26,7 @@ export class VerLugarComponent implements OnInit {
     this.obtenerLugares();
   }
   obtenerLugares() {
-    console.log('entro');
+    //se carga el listado de los lugares
     this.lugarService.getLugars().subscribe({
       next: (lg: Lugar[]) => (this.lugares = lg),
       error: (error: any) => console.log(error),

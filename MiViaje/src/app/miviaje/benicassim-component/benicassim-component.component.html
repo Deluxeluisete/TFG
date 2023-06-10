@@ -3,7 +3,6 @@
 
 <head>
   <title>Deluxe Restaurant</title>
-  <meta name="description" content="Somos un gimnasio A1 dedicados a cuidar y mantener tu cuerpo en forma." />
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="assets/images/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -25,22 +24,22 @@
           <div class="col-md-6">
             <h1>¡Bienvenidos a Benicassim!</h1>
             <p>Descubre todo lo que nuestra ciudad tiene para ofrecer. Con sus hermosas playas,
-              monumentos históricos y una amplia variedad de actividades, Benicassim es el destino
+              monumentos históricos y una amplia variedad de actividades, <i>Benicassim</i> es el destino
               perfecto para tus vacaciones.</p>
-            <a href="#atractivos-turisticos" class="btn btn-primary btn-lg">Descubre más</a>
+            <a  [routerLink]="['/miviaje/formulario-viaje']" class="btn btn-primary btn-lg">Descubre más</a>
           </div>
           <div class="col-md-6">
-            <img src="assets/alcossebreMostrar.jpg" alt="Imagen de bienvenida">
+            <img src="assets/alcossebreMostrar.jpg" alt="Imagen de bienvenida" [routerLink]="['/miviaje/comentarios/Benicassim']">
           </div>
         </div>
       </div>
     </section>
     <section class="sobre-benicassim">
       <div class="container">
-        <div class="row">
+        <div class="row" >
           <div class="col-md-12">
-            <h2>Sobre Benicassim</h2>
-            <p>Benicassim es una hermosa ciudad costera situada en la costa este de España. Ofrece una
+            <h2 [routerLink]="['/miviaje/comentarios/PlayaBenicassim']" class="link-detalles">Sobre Benicassim</h2>
+            <p ><i>Benicassim</i> es una hermosa ciudad costera situada en la costa este de <i>España</i>. Ofrece una
               amplia variedad de actividades para los visitantes, incluyendo deportes acuáticos,
               excursiones en bicicleta y senderismo.</p>
             <p>La ciudad también es conocida por su festival de música anual, el FIB, que atrae a miles
@@ -49,10 +48,10 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            <img src="assets/atardecerbenicassim.jpg" alt="Imagen de Benicassim">
+            <img src="assets/atardecerbenicassim.jpg" alt="Imagen de Benicassim" >
           </div>
-          <div class="col-md-6">
-            <p>Benicassim es un destino popular para aquellos que buscan una escapada relajante en la
+          <div class="col-md-6" style="margin-top: 40px">
+            <p><i>Benicassim</i> es un destino popular para aquellos que buscan una escapada relajante en la
               playa. La ciudad cuenta con una hermosa costa y una amplia variedad de restaurantes y
               tiendas.</p>
             <p>Los visitantes también pueden explorar las montañas cercanas en busca de aventuras al
@@ -64,9 +63,9 @@
     <section class="actividades-benicassim">
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" style="margin-top: 40px;">
             <h2>Actividades en Benicassim</h2>
-            <p>Benicassim ofrece una gran cantidad de actividades para todos los gustos. Ya sea que
+            <p style="font-size: 1.2rem;"><i>Benicassim</i> ofrece una gran cantidad de actividades para todos los gustos. Ya sea que
               busques relajarte en la playa o explorar la naturaleza, aquí encontrarás algo para ti.
             </p>
           </div>
@@ -74,17 +73,17 @@
         <div class="row">
           <div class="col-md-6">
             <div class="actividad">
-              <img src="assets/playa-heliopolis-benicassim.jpeg">
-              <h3>Deportes acuáticos</h3>
-              <p>Benicassim cuenta con una gran cantidad de actividades acuáticas, como el windsurf,
+              <img src="assets/playa-heliopolis-benicassim.jpeg" >
+              <h3 [routerLink]="['/miviaje/comentarios/DeportesAcuaticos']" class="link-detalles">Deportes acuáticos</h3>
+              <p><i>Benicassim</i> cuenta con una gran cantidad de actividades acuáticas, como el windsurf,
                 el paddle surf, el kayak y el esquí acuático. Las playas de la ciudad son el lugar
                 perfecto para practicar estos deportes.</p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="actividad">
-              <img src="assets/5L.jpg" alt="Senderismo">
-              <h3>Senderismo</h3>
+              <img src="assets/5L.jpg" alt="Senderismo" >
+              <h3 [routerLink]="['/miviaje/comentarios/RutasSenderismo']" class="link-detalles">Senderismo</h3>
               <p>Las montañas cercanas ofrecen muchas oportunidades para hacer senderismo. Hay rutas
                 para todos los niveles de dificultad, desde caminatas fáciles hasta senderos más
                 exigentes.</p>
@@ -94,9 +93,9 @@
         <div class="row">
           <div class="col-md-6">
             <div class="actividad">
-              <img src="assets/ruta_benidorm_benicassim_8.jpg" alt="Ciclismo">
-              <h3>Ciclismo</h3>
-              <p>Benicassim es un lugar popular para el ciclismo, tanto en carretera como en montaña.
+              <img src="assets/ruta_benidorm_benicassim_8.jpg" alt="Ciclismo" >
+              <h3 [routerLink]="['/miviaje/comentarios/RutasCiclistas']" class="link-detalles">Ciclismo</h3>
+              <p><i>Benicassim</i> es un lugar popular para el ciclismo, tanto en carretera como en montaña.
                 Hay muchas rutas que ofrecen vistas impresionantes y desafíos emocionantes.</p>
             </div>
           </div>
@@ -104,9 +103,9 @@
             <div class="actividad">
               <img src="assets/SAN-SAN_2021_10_29_GLORIANM_VETUSTAMORLA_DSC_9694.jpg"
                 alt="Festival Internacional de Benicàssim">
-              <h3>Festival Internacional de Benicàssim</h3>
+              <h3 class="link-detalles" [routerLink]="['/miviaje/comentarios/FestivalBenicassim']">Festival de Benicàssim</h3>
               <p>El FIB es uno de los festivales de música más importantes de Europa. Cada año, miles
-                de personas de todo el mundo acuden a Benicassim para disfrutar de la música y la
+                de personas de todo el mundo acuden a <i>Benicassim</i> para disfrutar de la música y la
                 cultura.</p>
             </div>
           </div>
@@ -114,92 +113,33 @@
 
       </div>
     </section>
-    <style>
-      .actividad img {
-        width: 900px;
-        height: 200px;
-        object-fit: cover;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      }
-
-      /* Estilos para la sección 3 - Actividades */
-      .actividades {
-        background-color: #f9f9f9;
-        padding: 80px 0;
-      }
-
-      .actividad {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 50px;
-      }
-
-      .actividad img {
-        max-width: 100%;
-        margin-bottom: 20px;
-      }
-
-      .actividad h3 {
-        margin-top: 0;
-        font-size: 28px;
-        font-weight: 700;
-        text-align: center;
-        text-transform: uppercase;
-      }
-
-      .actividad p {
-        text-align: center;
-        font-size: 18px;
-        line-height: 1.5;
-        color: #777;
-        margin-bottom: 40px;
-        padding: 0 20px;
-      }
-
-      /* Ajustes para pantallas pequeñas */
-      @media (max-width: 767px) {
-        .actividad {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .actividad img {
-          width: 80%;
-        }
-      }
-
-    </style>
-
     <section id="platos-tipicos">
       <h2>Platos típicos de Benicassim</h2>
       <div class="platos">
         <div class="plato">
-          <img src="assets/calamar.jpg" alt="Nombre del plato">
-          <h3>Calamares a la romana</h3>
+          <img src="assets/calamar.jpg" alt="Nombre del plato"  >
+          <h3 [routerLink]="['/miviaje/comentarios/Calamares']" class="link-detalles">Calamares a la romana</h3>
           <p>Este plato es muy sencillo pero delicioso. Los calamares se rebozan en harina y huevo, y se
             fríen en aceite caliente. Se sirven con limón y son ideales para picar como aperitivo.</p>
         </div>
         <div class="plato">
-          <img src="assets/figatell-3-1.jpg" alt="Nombre del plato">
-          <h3>Figatells</h3>
+          <img src="assets/figatell-3-1.jpg" alt="Nombre del plato" >
+          <h3 [routerLink]="['/miviaje/comentarios/Figatell']" class="link-detalles">Figatells</h3>
           <p>Son unas hamburguesas hechas a base de hígado de cerdo picado, pan rallado y especias. Se
             suelen comer fritas y acompañadas de patatas fritas o ensalada.</p>
         </div>
         <div class="plato">
           <img src="assets/shutterstock_1064465108-scaled-e1603723791159.jpg" alt="Nombre del plato"
             style="height: 280px;">
-          <h3>All i Pebre</h3>
+          <h3 [routerLink]="['/miviaje/comentarios/AlliPebre']" class="link-detalles">All i Pebre</h3>
           <p>El all i pebre es un guiso de pescado tradicional de la Comunidad Valenciana,Se elabora con anguilas u
             otros pescados, tomate, ñoras, ajo,
             cebolla y romero. Es un plato sabroso y contundente, perfecto para disfrutar en cualquier época del año.
           </p>
         </div>
         <div class="plato">
-          <img src="assets/arroz-al-horno.jpg" alt="Nombre del plato" style="height: 280px;">
-          <h3>Arroz al horno</h3>
+          <img src="assets/arroz-al-horno.jpg" alt="Nombre del plato" style="height: 280px;" >
+          <h3 [routerLink]="['/miviaje/comentarios/ArrozHorno']" class="link-detalles">Arroz al horno</h3>
           <p>Es un plato muy típico de la cocina valenciana. El arroz se cuece al horno junto con judías
             verdes, garbanzos, tomate, patatas y carne (generalmente cerdo). El resultado es un plato
             sabroso y contundente, perfecto para los días de invierno.</p>
@@ -217,5 +157,5 @@
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
   </script>
 </body>
-
+<app-footer></app-footer>
 </html>

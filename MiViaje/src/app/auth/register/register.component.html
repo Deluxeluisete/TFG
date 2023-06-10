@@ -17,74 +17,99 @@
 
 </head>
 <mv-menu-component></mv-menu-component>
+<!-- <swal #confirmDialog title="Are you sure?" text="This cannot be undone" icon="question" [showDenyButton]="true"
+[focusCancel]="true"></swal> -->
 
 <body class="body-register">
 
   <div class="registration-form">
     <form [formGroup]="formUser" (ngSubmit)="addUser()">
       <div class="form-icon">
-        <span><i class="icon icon-user"></i></span>
+        <span><i class="icon icon-user" *ngIf="!imagenBoolean"></i></span>
+        <div class="image-container" *ngIf="imagenBoolean">
+          <img [src]="newUser.imagen">
+        </div>
       </div>
       <div class="form-group">
         <input type="text" class="form-control item" id="nombre" placeholder="Nombre" [(ngModel)]="newUser.nombre"
           formControlName="nombre" [ngClass]="validClasses(nombreControl, 'is-valid', 'is-invalid')">
-          <div class="invalid-feedback" *ngIf="nombreControl.errors?.['required']">
-            El nombre de usuario es necesario
-          </div>
+        <div class="invalid-feedback" *ngIf="nombreControl.errors?.['required']">
+          El nombre de usuario es necesario
+        </div>
       </div>
       <div class="form-group">
         <input type="text" class="form-control item" id="apellidos" placeholder="Apellidos"
-          [(ngModel)]="newUser.apellidos" formControlName="apellidos" [ngClass]="validClasses(apellidosControl, 'is-valid', 'is-invalid')">
+          [(ngModel)]="newUser.apellidos" formControlName="apellidos"
+          [ngClass]="validClasses(apellidosControl, 'is-valid', 'is-invalid')">
 
-          <div class="invalid-feedback" *ngIf="apellidosControl.errors?.['required']">
-            Los apellidos son necesarios.
-          </div>
+        <div class="invalid-feedback" *ngIf="apellidosControl.errors?.['required']">
+          Los apellidos son necesarios.
         </div>
-      <div class="form-group">
+      </div>
+      <div class="form-group" *ngIf="!edit">
         <input type="password" class="form-control item" id="password" placeholder="Contraseña"
-          [(ngModel)]="newUser.contrasena" formControlName="contrasena" [ngClass]="validClasses(contrasenaControl, 'is-valid', 'is-invalid')">
+          [(ngModel)]="newUser.contrasena" formControlName="contrasena"
+          [ngClass]="validClasses(contrasenaControl, 'is-valid', 'is-invalid')">
 
-          <div class="invalid-feedback" *ngIf="contrasenaControl.errors?.['required']">
-            Por su seguridad la contraseña no puede ser vacia
-          </div>
-          <div class="invalid-feedback" *ngIf="contrasenaControl.errors?.['minlength']">
-            La contraseña debe ser minimo de 8 caracteres
-          </div>
+        <div class="invalid-feedback" *ngIf="contrasenaControl.errors?.['required']">
+          Por su seguridad la contraseña no puede ser vacia
         </div>
-      <div class="form-group">
-        <input type="text" class="form-control item" id="email" placeholder="Email" [(ngModel)]="newUser.email" readonly *ngIf="edit"
-        formControlName="email" [ngClass]="validClasses(emailControl, 'is-valid', 'is-invalid')">
-        <input type="text" class="form-control item" id="email" placeholder="Email" [(ngModel)]="newUser.email" *ngIf="!edit"
-          formControlName="email" [ngClass]="validClasses(emailControl, 'is-valid', 'is-invalid')">
-
-          <div class="invalid-feedback" *ngIf="emailControl.errors?.['required']">
-            El email es necesario
-          </div>
-          <div class="invalid-feedback" *ngIf="emailControl.errors?.['pattern']">
-            El email debe ser un email valido.
-          </div>
-        </div>
-      <div class="form-group">
-        <input type="text" class="form-control item" id="phone-number" placeholder="numero de teléfono"
-          [(ngModel)]="newUser.telefono" formControlName="telefono" [ngClass]="validClasses(telefonoControl, 'is-valid', 'is-invalid')">
-
-          <div class="invalid-feedback" *ngIf="telefonoControl.errors?.['required']">
-            El teléfono es necesario
-          </div>
-          <div class="invalid-feedback" *ngIf="emailControl.errors?.['pattern']">
-            El telefono debe ser un telefono valido.
-          </div>
-        </div>
-      <div class="form-group">
-        <input type="text" class="form-control item" id="birth-date" placeholder="Fecha de nacimiento" *ngIf="edit"  [(ngModel)]="fecha" formControlName="nacimiento">
-        <input type="text" class="form-control item" id="birth-date" placeholder="Fecha de nacimiento" *ngIf="!edit" [(ngModel)]="newUser.nacimiento" formControlName="nacimiento">
-
-        <div class="invalid-feedback" *ngIf="nacimientoControl.errors?.['required']">
-          La fecha es necesaria
+        <div class="invalid-feedback" *ngIf="contrasenaControl.errors?.['minlength']">
+          La contraseña debe ser minimo de 8 caracteres
         </div>
       </div>
       <div class="form-group">
-        <button type="submit"  [disabled]="formUser.invalid" class="btn btn-block create-account">Crear cuenta</button>
+        <input type="text" class="form-control item" id="email" placeholder="Email" [(ngModel)]="newUser.email" readonly
+          *ngIf="edit" formControlName="email" [ngClass]="validClasses(emailControl, 'is-valid', 'is-invalid')">
+        <input type="text" class="form-control item" id="email" placeholder="Email" [(ngModel)]="newUser.email"
+          *ngIf="!edit" formControlName="email" [ngClass]="validClasses(emailControl, 'is-valid', 'is-invalid')">
+
+        <div class="invalid-feedback" *ngIf="emailControl.errors?.['required']">
+          El email es necesario
+        </div>
+        <div class="invalid-feedback" *ngIf="emailControl.errors?.['pattern']">
+          El email debe ser un email valido.
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control item" id="phone-number" placeholder="numero de teléfono"
+          [(ngModel)]="newUser.telefono" formControlName="telefono"
+          [ngClass]="validClasses(telefonoControl, 'is-valid', 'is-invalid')">
+
+        <div class="invalid-feedback" *ngIf="telefonoControl.errors?.['required']">
+          El teléfono es necesario
+        </div>
+        <div class="invalid-feedback" *ngIf="telefonoControl.errors?.['pattern']">
+          El telefono debe ser un telefono valido.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="date" class="form-control item" id="nacimiento" [(ngModel)]="newUser.nacimiento"
+          formControlName="nacimiento" [ngClass]="validClasses(nacimientoControl, 'is-valid', 'is-invalid')"
+          *ngIf="!edit">
+        <input type="date" class="form-control item" id="nacimiento" *ngIf="edit" [(ngModel)]="fecha"
+          formControlName="nacimiento" [ngClass]="validClasses(nacimientoControl, 'is-valid', 'is-invalid')">
+
+        <div class="invalid-feedback" *ngIf="nacimientoControl.errors?.['pattern']">
+          La fecha de nacimiento no es correcta
+        </div>
+        <div class="invalid-feedback" *ngIf="nacimientoControl.errors?.['required']">
+          La fecha de nacimiento es necesaria
+        </div>
+      </div>
+      <div class="form-group" *ngIf="!edit">
+        <input type="file" class="form-control item" id="imagen" name="imagen" #fileImage
+          (change)="changeImage(fileImage)" formControlName="imagen"
+          [ngClass]="validClasses(imagenControl, 'is-valid', 'is-invalid')" />
+
+      </div>
+
+      <div class="form-group">
+        <button type="submit" [disabled]="formUser.invalid" class="btn btn-block create-account" *ngIf="!edit">Crear
+          cuenta</button>
+        <button type="submit" [disabled]="formUser.invalid" class="btn btn-block create-account" *ngIf="edit">Modificar
+          datos</button>
       </div>
     </form>
     <div class="social-media">
@@ -92,7 +117,6 @@
       <div class="social-icons">
         <a href="#"><i class="icon-social-facebook" title="Facebook"></i></a>
         <a href="#"><i class="icon-social-google" title="Google"></i></a>
-        <!-- <a href="#"><i class="icon-social-twitter" title="Twitter"></i></a> -->
       </div>
     </div>
   </div>

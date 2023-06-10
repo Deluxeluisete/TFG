@@ -62,50 +62,18 @@ export class LoginComponent implements OnInit {
     this.usersService.getUsuario(this.newUserLogin.email,this.newUserLogin.contrasena).subscribe({
       next: (usuario) => {
         this.loginAngular = usuario;
-
-        // const usuario3 = JSON.parse(localStorage.getItem('user')!);
-        // const nombre = usuario.nombre;
       },
       error: (error) => console.log(error),
       complete: () => {
-
-
         if (this.loginAngular?.email !== null && this.loginAngular?.email !== undefined && this.loginAngular.email !='') {
           localStorage.setItem('user', JSON.stringify(this.loginAngular));
           this.router.navigate(['/miviaje']);
         }
       },
     });
-    // save$.subscribe((user) => {
-    //   this.usersService.getUsuario(this.newUserLogin.email).subscribe(
-    //     (resultado: any) => {
-    //       this.loginAngular = resultado;
-    //       console.log('Resultado de la búsqueda:', this.loginAngular);
-    //     },
-    //     (error: any) => {
-    //       console.error('Error en la búsqueda:', error);
-    //     }
-    //   );
-    //   console.log('angular recibe ');
-    //   this.router.navigate(['/miviaje']);
-    // });
   }
-
-  // this.gptService.login(this.newUserLogin).subscribe(
-  //   (user: User) => alert(`Hola ${user.nombre} ${user.apellidos} (${user.email})`),
-  //   (error: any) => console.error(error)
-  // );
-  // this.usersService.logine(this.newUserLogin);
-  // console.log(localStorage.getItem('user'));
-  // if(this.isLoggedIn()){
-
-  //   this.router.navigate(['/miviaje']);
-
-  // }
-
   users$: Observable<any> | undefined;
   ngOnInit(): void {
-    console.log(this.users$);
     this.contrasenaControl = this.fb.control('', [Validators.required]);
     this.emailControl = this.fb.control('', [Validators.required]);
     this.formLogin = this.fb.group({

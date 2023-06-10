@@ -21,38 +21,32 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="assets/atardecerbenicassim.jpg" class="d-block w-100" alt="First slide">
+        <img src="assets/excursiones.jpg" class="d-block w-100" alt="Second slide">
         <div class="carousel-caption d-none d-md-block">
           <h5>Disfruta tu Viaje</h5>
           <p>Desconecta y deja la planificación para nuestros especialistas.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="assets/excursiones.jpg" class="d-block w-100" alt="Second slide">
+        <img src="assets/oropesa.jpg" class="d-block w-100" alt="Third slide">
         <div class="carousel-caption d-none d-md-block">
           <h5>Desconecta y vive</h5>
           <p>Las mejores playas de la costa mediterránea.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="assets/oropesa.jpg" class="d-block w-100" alt="Third slide">
+        <img src="assets/atardecerbenicassim.jpg" class="d-block w-100" alt="First slide">
         <div class="carousel-caption d-none d-md-block">
           <h5>Actividades Únicas</h5>
           <p>Experiencias inolvidables llenas de magia</p>
         </div>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </a>
 
   </div>
   <section class="section-uno">
     <article class="article-izquierda">
-      <header style="  text-align: justify">
+      <header>
         <h1>¿Quiénes somos?</h1>
         <p><i>Mi Viaje</i> es una empresa especializada en la creación de planes vacacionales de primera calidad
           adaptados a las necesidades de nuestros clientes.
@@ -65,16 +59,16 @@
       </header>
     </article>
     <article class="article-derecha">
-      <img src="assets/Alcala-de-Xivert_Alcossebre_Esglesia.jpg">
+      <img src="assets/Alcala-de-Xivert_Alcossebre_Esglesia.jpg" [routerLink]="['/miviaje/comentarios/IglesiaAlcala']">
     </article>
   </section>
   <section class="section-dos">
     <article class="article-izquierda">
-      <img src="assets/Castillo-Alcalá-Xivert-1600px.jpg">
+      <img src="assets/Castillo-Alcalá-Xivert-1600px.jpg" [routerLink]="['/miviaje/comentarios/CastilloXivert']">
     </article>
     <article class="article-derecha">
-      <header style="  text-align: justify;">
-        <h1>¿Qué Hacemos?</h1>
+      <header >
+        <h1 style="margin-left: 40px;">¿Qué Hacemos?</h1>
         <p><i>Mi Viaje</i> se dedica a la planificacion de sus vacaciones desde el momento en que usted sale de
           su hogar hasta que regresa,contamos con grandes profesionales en la materia que le ayudarán a
           encontrar
@@ -110,24 +104,21 @@
   <div class="ml-3">
     <div class="row">
       <div class="col-md-3 ">
-        Conoce la costa mediterránea de la mano de las playas y calas de Benicàssim ideales para disfrutar con
-        tus seres queridos
+        Conoce la costa mediterránea de la mano de las playas y calas de Benicàssim
       </div>
       <div class="col-md-3 ">
-        Embárcate en una aventura por las calles de Alcossebre el lugar ideal para disfrutar de la naturaleza
+        Embárcate en una aventura por las calles de Alcossebre el lugar ideal para disfrutar
       </div>
       <div class="col-md-3 ">
-        ¡Castellón te espera! Descubre la magía de una de las grandes ciudades de la Comunidad Valenciana en un
-        increible viaje cultural
+        Descubre la magía de una de las grandes ciudades de la Comunidad Valenciana
       </div>
       <div class="col-md-3 ">
-        Peñíscola es el lugar ideal para desconectar del mundo y vivir una mezcla de actividades culturales
-        acompañadas de las mejores calas
+        Peñíscola es el lugar ideal para desconectar del mundo y vivir una mezcla de actividades
       </div>
     </div>
   </div>
   <article class="contenedor-button">
-    <button class="bubbly-button" (click)="personalizarViaje()">Personalizar Viaje!</button>
+    <button class="bubbly-button" (click)="personalizarViaje()"><b>Personalizar Viaje</b></button>
   </article>
   <app-footer></app-footer>
   <script>

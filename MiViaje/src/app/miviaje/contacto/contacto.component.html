@@ -24,7 +24,7 @@
     <div class="row justify-content-center mb-3">
       <div class="col-lg-6">
         <div class="form-contacto p-3 bg-light rounded">
-          <form [formGroup]="formContacto" class="mt-4" (ngSubmit)="enviarMail()">
+          <form [formGroup]="formContacto"  (ngSubmit)="enviarMail()">
             <h3 class="text-center mb-3 h">
               Para mejorar su experiencia de viaje, contáctenos
             </h3>
@@ -85,6 +85,7 @@
       </div>
     </div>
   </div>
+  <app-footer></app-footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

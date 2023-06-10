@@ -26,16 +26,15 @@ import {
 
 export class ProfileComponent implements OnInit {
   user!: User;
+  //cargamos el usuario de la variable local para mostrar sus datos
    usuario = JSON.parse(localStorage.getItem('user')!);
-
    constructor(
     private readonly router: Router,
     private route: ActivatedRoute,
     private fb: NonNullableFormBuilder
   ) {
   }  ngOnInit(): void {
-    console.log(this.usuario.id)
-    console.log(this.usuario.nombre)
+
 
     this.route.data.subscribe((data) => (this.user = data['profile']));
   }

@@ -1,4 +1,10 @@
 @import "../../../scss/screen.scss";
+p {
+    font-size: 1.3rem;
+  }
+h3{
+  color: #0a62ef;
+}
 .inicio {
   background-color: #f7f7f7;
   padding: 100px 0;
@@ -9,7 +15,7 @@
   }
 
   p {
-    font-size: 18px;
+    font-size: 1.3rem;
     margin-bottom: 30px;
   }
 
@@ -18,6 +24,7 @@
     height: auto;
   }
 }
+
 .sobre-benicassim {
   background-color: #f2f2f2;
   padding: 50px 0;
@@ -32,6 +39,7 @@
     line-height: 1.5;
     margin-bottom: 20px;
   }
+
   img {
     width: 100%;
     height: auto;
@@ -72,7 +80,7 @@
   }
 
   h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
   }
 
@@ -81,4 +89,64 @@
     line-height: 1.5;
     color: #777;
   }
+}
+
+.actividad img {
+  width: 900px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para la sección 3 - Actividades */
+.actividades {
+  background-color: #f9f9f9;
+  padding: 80px 0;
+}
+
+.actividad {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+
+  img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  p {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #777;
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767px) {
+  .actividad {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .actividad img {
+    width: 80%;
+  }
+}
+
+h2 {
+  color: #0a62ef;
 }

@@ -12,13 +12,12 @@ import { Comentario } from '../interfaces/comment';
 })
 export class CommentService {
   constructor(private readonly http: HttpClient) {}
+  //obtengo los comentarios
   getComentarios():any {
     return this.http.get('comentario');
   }
+  //se añade un comentario a la tabla comentarios
   addComment(comment: Comentario): Observable<Comentario> {
-    console.log("llega1")
-    console.log(comment.mensaje)
-    console.log(comment.tematica)
     return this.http
       .post<ComentarioResponse>('comentario', comment)
       .pipe(map((resp) => resp.comentario));

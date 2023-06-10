@@ -29,7 +29,7 @@ export class VerItinerariosComponent {
     this.obtenerItinerarios();
   }
   obtenerItinerarios() {
-    console.log(this.usuario.email)
+    //obtenemos itinerarios de la persona
     this.itinerarioService.getItinerarioByEmail(this.usuario.email).subscribe({
       next: (it: Itinerario[]) => {this.itinerarios = it.map((itinerario: Itinerario) => {
         const fecha = new Date(itinerario.desde);
@@ -37,7 +37,6 @@ export class VerItinerariosComponent {
         itinerario.desde= new Date(format(fecha, 'dd MMMM yyyy'));
         return { ...itinerario, fechaItinerario: fechaLegible };
       });},
-
       error: (error: any) => console.log(error),
       complete: () => {},
     });

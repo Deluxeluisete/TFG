@@ -1,27 +1,33 @@
-@import "../../../scss/screen.scss";
-
-.jumbotron {
-  background-image: url('../../../assets/aquarama.jpg');
-  background-size: cover;
-  height: 100vh;
-  display: flex;
+.link-detalles:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  }
+body {
+  padding-top: 40px;
+}
+h2{
+  color: #0a62ef;
+}
+.card-title{
+  color: #0a62ef;
+  font-size: 1.5rem;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  margin-bottom: 0;
+
 }
 
+.card-text{
+  font-size: 1.3rem;
+}
 h1 {
   font-size: 5rem;
   margin-bottom: 2rem;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+
 }
 
 p {
   font-size: 1.5rem;
   margin-bottom: 2rem;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+
 }
 
 .btn-primary {
@@ -38,4 +44,28 @@ p {
 
 .card:hover {
   transform: translateY(-0.5rem);
+}
+
+section#que-hacer h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #0a62ef;
+  text-transform: uppercase;
+}
+
+section#que-hacer h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0a62ef;
+}
+
+section#que-hacer p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+img {
+  border: 2px solid gray;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

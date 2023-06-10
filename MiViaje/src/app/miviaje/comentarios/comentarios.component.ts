@@ -31,6 +31,7 @@ export class ComentariosComponent implements OnInit {
   comentarios: Comentario[] = [];
   lugares: Lugar[] = [];
   tematica!: string;
+  usuario!: any;
 
   constructor(
     private readonly commentService: CommentService,
@@ -42,26 +43,25 @@ export class ComentariosComponent implements OnInit {
     this.newComment = this.resetComment();
     this.newLugar = this.resetLugar();
   }
-  usuario = JSON.parse(localStorage.getItem('user')!);
+  //cargamos el usuario de la variable local
   ngOnInit(): void {
+    if (localStorage.getItem('user') != '') {
+      this.usuario = JSON.parse(localStorage.getItem('user')!);
+    }
+    //obtenemos el valor que viene en la ruta
     this.tematica = this.route.snapshot.params['tematica'];
-
     this.resetComment();
     this.mensajeControl = this.fb.control('', [Validators.required]);
-    this.commentService.getComentarios().subscribe({
-      next: (cm: Comentario[]) => (this.comentarios = cm),
-      error: (error: any) => console.log(error),
-      complete: () => {},
-    });
+    this.obtenerComentarios()
+    //cargamos los lugares y los filtramos por el que coincida con el valor de la tematica
     this.lugarService.getLugars().subscribe({
       next: (lg: Lugar[]) => (this.lugares = lg),
       error: (error: any) => console.log(error),
       complete: () => {
         for (const lugar of this.lugares) {
-          console.log(lugar.nombre)
           if (lugar.nombre == this.tematica) {
-            this.newLugar.nombre=lugar.nombre;
-            this.newLugar.descripcion=lugar.descripcion;
+            this.newLugar.nombre = lugar.nombre;
+            this.newLugar.descripcion = lugar.descripcion;
             this.convertStringToBitmap(lugar.imagen);
           }
         }
@@ -71,8 +71,17 @@ export class ComentariosComponent implements OnInit {
       mensaje: this.mensajeControl,
     });
   }
+  obtenerComentarios() {
+    //obtenemos los comentarios
+    this.commentService.getComentarios().subscribe({
+      next: (cm: Comentario[]) => (this.comentarios = cm),
+      error: (error: any) => console.log(error),
+      complete: () => {
+        console.log(this.comentarios);
+      },
+    });
+  }
   convertStringToBitmap(imagenBase64: string) {
-     imagenBase64 = this.lugares[2].imagen;
     const bytes = atob(imagenBase64.split(',')[1]);
     // Crear un ArrayBuffer y una vista de 8 bits
     const buffer = new ArrayBuffer(bytes.length);
@@ -103,10 +112,10 @@ export class ComentariosComponent implements OnInit {
     this.newComment.mensaje = this.mensajeControl.value;
     this.newComment.tematica = this.tematica;
     this.newComment.Usuario = this.usuario;
-    console.log(this.newComment);
     this.commentService.addComment(this.newComment).subscribe((user) => {
       this.saved = true;
-      this.router.navigate(['/auth/login']);
+      this.newComment.mensaje = '';
+      this.obtenerComentarios();
     });
   }
   validClasses(control: FormControl, validClass: string, errorClass: string) {

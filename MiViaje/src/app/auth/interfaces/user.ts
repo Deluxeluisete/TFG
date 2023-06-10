@@ -1,5 +1,6 @@
 export interface User {
   id?: number;
+  imagen: string;
   nombre: string;
   apellidos: string;
   contrasena: string;

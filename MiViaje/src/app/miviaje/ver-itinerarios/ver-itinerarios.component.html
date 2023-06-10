@@ -14,13 +14,12 @@
   <main>
     <section class="itinerarios">
       <div class="container">
-        <h2>Mis Itinerarios</h2>
+        <h2 style="color: #0a62ef;">Mis Itinerarios</h2>
 
         <div class="itinerario" *ngFor="let it of itinerarios; let i = index">
           <h3 class="titulo">Viaje a {{it.destino}}</h3>
           <p class="fecha">Fecha: {{it.desde}}</p>
-          <button> Ver Detalles</button>
-        </div>
+          <button type="submit">Detalles</button>        </div>
       </div>
     </section>
   </main>

@@ -1,9 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>Deluxe Restaurant</title>
-  <meta name="description" content="Somos un gimnasio A1 dedicados a cuidar y mantener tu cuerpo en forma." />
+  <title>Mi Viaje</title>
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="assets/images/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -79,9 +79,12 @@
       <div class="form-group">
         <label for="fecha">Hasta</label>
         <input type="date" class="form-control" id="hasta" [(ngModel)]="newItinerario.hasta" formControlName="hasta"
-          [ngClass]="validClasses(hastaControl, 'is-valid', 'is-invalid')"   [value]="newItinerario.hasta | date:'yyyy-MM-dd'">
+          [ngClass]="validClasses(hastaControl, 'is-valid', 'is-invalid')" >
         <div class="invalid-feedback" *ngIf="hastaControl.errors?.['required']">
           La fecha de fin de viaje es necesaria
+        </div>
+        <div class="invalid-feedback" *ngIf="hastaControl.errors?.['pattern']">
+          La fecha de inicio del viaje no es correcta
         </div>
       </div>
       <button type="submit"  class="btn btn-primary">Enviar</button>

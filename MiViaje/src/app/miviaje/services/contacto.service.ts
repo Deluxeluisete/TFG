@@ -12,7 +12,7 @@ import { Contacto } from '../interfaces/contacto';
 })
 export class ContactoService {
   constructor(private readonly http: HttpClient) {}
-
+  //envia email
   sendMail(contacto: Contacto): Observable<Contacto> {
     return this.http.post<ContactoResponse>('comentario/mail', contacto).pipe(map((resp) => resp.contacto));
   }

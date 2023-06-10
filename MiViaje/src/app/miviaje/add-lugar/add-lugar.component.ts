@@ -43,6 +43,7 @@ export class AddLugarComponent implements OnInit{
     });
   }
 
+  //cargar la imagen al objeto newLugar.imagen
   changeImage(fileInput: HTMLInputElement) {
     if (!fileInput.files || fileInput.files.length === 0) {
       return;
@@ -60,6 +61,8 @@ export class AddLugarComponent implements OnInit{
       imagen: '',
     };
   }
+
+  //añadimos un lugar nuevo a nuestra web
   addLugar() {
     this.newLugar.nombre = this.nombreControl.value;
     this.newLugar.descripcion = this.descripcionControl.value;
@@ -67,7 +70,7 @@ export class AddLugarComponent implements OnInit{
 
     this.lugarService.addLugar(this.newLugar).subscribe((lugar) => {
       this.saved = true;
-      this.router.navigate(['/auth/login']);
+      this.router.navigate(['/miviaje/comentarios/'+this.newLugar.nombre]);
     });
   }
 

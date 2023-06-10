@@ -9,18 +9,18 @@ import { Lugar } from '../interfaces/lugar';
 })
 export class LugarService {
   constructor(private readonly http: HttpClient) {}
+  //obtiene el listado de lugares
   getLugars():any {
     return this.http.get('lugar');
   }
+  //añade un nuevo lugar
   addLugar(lugar: Lugar): Observable<Lugar> {
-
     return this.http
       .post<LugarResponse>('lugar', lugar)
       .pipe(map((resp) => resp.lugar));
   }
+  //borra un lugar de la aplicaicon, solo lo pdran ejecutar los usuarios administradores
   borrarLugar(lugar: Lugar): any {
       return this.http.delete( "lugar/" +lugar.nombre );
-
-
     }
 }

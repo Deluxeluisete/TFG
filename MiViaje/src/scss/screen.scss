@@ -16,6 +16,10 @@ $button-bg: $fuschia;
 $button-text-color: #fff;
 $baby-blue: #f8faff;
 
+.link-detalles:hover{
+text-decoration: underline;
+cursor: pointer;
+}
 body{
   text-align: justify;
   font-size: 16px;
@@ -38,7 +42,6 @@ body{
   cursor: pointer;
   position: relative;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
 
   &:focus {
     outline: 0;
@@ -152,76 +155,6 @@ body{
     }
 }
 
-.section-uno {
-    display: flex;
-    margin-bottom: 20px;
-    margin-top: 20px;
-
-    .article-izquierda {
-        font-size: 20px;
-        width: 72%;
-        display: inline-block;
-        margin-top: 80px;
-
-        header {
-            h1 {
-                margin-left: 25px;
-            }
-
-            p {
-                margin-left: 30px;
-            }
-        }
-    }
-
-    .article-derecha {
-        display: flex;
-        width: auto;
-        border: 1px solid #000;
-        margin-left: 10px;
-        overflow: hidden;
-
-        img {
-            @include transiciones(transform, 0.4s);
-        }
-
-        img:hover {
-            transform: scale(1.2);
-        }
-    }
-
-}
-
-.section-dos {
-    display: flex;
-    margin-bottom: 20px;
-    margin-top: 20px;
-
-    .article-izquierda {
-
-        display: flex;
-        margin-left: 20px;
-        border: 1px solid #000;
-         width: 1800px;
-          overflow: hidden;
-        img {
-            @include transiciones(transform, 0.4s);
-            height: 450px;
-        }
-
-        img:hover {
-            transform: scale(1.2);
-
-        }
-    }
-
-    .article-derecha {
-        font-size: 20px;
-        display: inline-block;
-        width: auto;
-        margin-left: 20px;
-    }
-}
 
 
 

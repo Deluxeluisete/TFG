@@ -2,170 +2,177 @@
 <html>
 
 <head>
-    <title>Mi Viaje</title>
-    <meta name="description"  />
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Descubre lo mejor de Alcossebre</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Mi Viaje</title>
+  <meta name="description" />
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Descubre lo mejor de Alcossebre</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 
 <mv-menu-component></mv-menu-component>
 
-    <body>
-        <header>
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                    <h1 class="display-4">Descubre lo mejor de Alcossebre</h1>
-                    <p class="lead">Explora nuestros hoteles, restaurantes y actividades turísticas</p>
-                </div>
+<body>
+  <header>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Descubre lo mejor de Alcossebre</h1>
+        <p class="lead">Explora nuestros hoteles, restaurantes y actividades turísticas</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container " style="font-size: 20px;">
+        <div class="row">
+          <div class="col-md-12 mb-4">
+            <p>
+              <i> Alcossebre</i> es un destino turístico en la costa mediterránea española que no puedes
+              perderte. Situado en la provincia de <i>Castellón</i>, este pequeño pueblo costero te ofrecerá
+              todo lo que necesitas para unas vacaciones inolvidables.
+
+            </p>
+            <p>En <i>Alcossebre</i> encontrarás una amplia variedad de playas y calas de aguas cristalinas,
+              perfectas para nadar, tomar el sol o practicar deportes acuáticos. Además, podrás
+              disfrutar de largos paseos por la zona marítima, admirando las vistas al mar mientras
+              te tomas un refresco en uno de sus chiringuitos.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="text-center">
+          <img src="assets/alcossebreMostrar.jpg" height="500px" width="1050px"
+            [routerLink]="['/miviaje/comentarios/AlcossebrePlaya']">
+        </div>
+      </div>
+
+    </section>
+
+    <section id="gastronomia">
+      <div class="container">
+        <h1 class="text-center mb-4 mt-5">Gastronomía</h1>
+        <div class="row">
+          <div class="col-md-6 mb-4 d-flex align-items-center" style="font-size: 18px;">
+            <p>En cuanto a la gastronomía, no podrás resistirte a probar sus platos típicos de la cocina
+              mediterránea, como la paella, el arroz a banda, el pulpo a la brasa o el suquet de peix.
+            </p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div>
+              <img src="assets/pulpo.jpg" class="img-comida" height="250px"
+                >
             </div>
-        </header>
+          </div>
 
-        <main>
-            <section>
-                <div class="container " style="font-size: 20px;">
-                    <div class="row">
-                        <div class="col-md-12 mb-4">
-                            <p>
-                                Alcossebre es un destino turístico en la costa mediterránea española que no puedes
-                                perderte. Situado en la provincia de Castellón, este pequeño pueblo costero te ofrecerá
-                                todo lo que necesitas para unas vacaciones inolvidables.
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div>
+              <img src="assets/tapas.jpeg" class="img-comida" height="250px"
+                >
+            </div>
+          </div>
+          <div class="col-md-6 mb-4 d-flex align-items-center ms-auto" style="font-size: 18px;">
+            <p> Además, encontrarás una gran variedad de restaurantes y bares donde degustar tapas y
+              pinchos acompañados de un buen vino o una cerveza fría..</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-4 d-flex align-items-center" style="font-size: 18px;">
+            <p> Entre los postres más destacados se encuentra la coca de llanda, un bizcocho esponjoso y
+              jugoso, otra deliciosa opción es el arnadí, un postre hecho con calabaza, almendras y
+              azúcar. En definitiva, la gastronomía de <i>Alcossebre</i> es una experiencia para los sentidos
+            </p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div>
+              <img src="assets/cocallanda.jpg" class="img-comida" height="290px" width="480px"
+                >
+            </div>
+          </div>
 
-                            </p>
-                            <p>En Alcossebre encontrarás una amplia variedad de playas y calas de aguas cristalinas,
-                                perfectas para nadar, tomar el sol o practicar deportes acuáticos. Además, podrás
-                                disfrutar de largos paseos por la zona marítima, admirando las vistas al mar mientras
-                                te tomas un refresco en uno de sus chiringuitos.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-center">
-                        <img src="assets/alcossebreMostrar.jpg" height="500px" width="1050px">
-                    </div>
-                </div>
+        </div>
+      </div>
+    </section>
 
-            </section>
-
-            <section id="gastronomia">
-                <div class="container">
-                    <h1 class="text-center mb-4 mt-5">Gastronomía</h1>
-                    <div class="row">
-                        <div class="col-md-6 mb-4 d-flex align-items-center" style="font-size: 18px;">
-                            <p>En cuanto a la gastronomía, no podrás resistirte a probar sus platos típicos de la cocina
-                                mediterránea, como la paella, el arroz a banda, el pulpo a la brasa o el suquet de peix.
-                            </p>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <div>
-                                <img src="assets/pulpo.jpg" height="250px">
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 mb-4">
-                            <div>
-                                <img src="assets/tapas.jpeg" height="250px">
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4 d-flex align-items-center ms-auto" style="font-size: 18px;">
-                            <p> Además, encontrarás una gran variedad de restaurantes y bares donde degustar tapas y
-                                pinchos acompañados de un buen vino o una cerveza fría..</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-4 d-flex align-items-center" style="font-size: 18px;">
-                            <p> Entre los postres más destacados se encuentra la coca de llanda, un bizcocho esponjoso y
-                                jugoso, otra deliciosa opción es el arnadí, un postre hecho con calabaza, almendras y
-                                azúcar. En definitiva, la gastronomía de Alcossebre es una experiencia para los sentidos
-                            </p>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <div>
-                                <img src="assets/cocallanda.jpg" height="290px" width="480px">
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section id="actividades">
-                <h1 class="text-center mb-4">Actividades turísticas</h1>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 mb-4">
-                            <p>
-                                Alcossebre cuenta con una gran variedad de playas y calas con aguas cristalinas,
-                                perfectas para disfrutar del sol y del mar. Entre las playas más populares se encuentran
-                                la Playa del Carregador, la Playa Romana, la Playa de las Fuentes y la Playa del Moro,
-                                además cuenta con varias rutas de senderismo que permiten disfrutar de la
-                                belleza natural de la zona, como la ruta del Parque Natural de la Sierra de Irta.
+    <section id="actividades">
+      <h1 class="text-center mb-4">Actividades turísticas</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-4" style="font-size: 1.2rem;">
+            <p>
+              <i>Alcossebre</i> cuenta con una gran variedad de playas y calas con aguas cristalinas,
+              perfectas para disfrutar del sol y del mar. Entre las playas más populares se encuentran
+              la <i>Playa del Carregador, la Playa Romana, la Playa de las Fuentes y la Playa del Moro</i>,
+              además cuenta con varias rutas de senderismo que permiten disfrutar de la
+              belleza natural de la zona, como la ruta del <i>Parque Natural de la Sierra de Irta</i>.
 
 
-                            </p>
-                            <p> Es posible practicar diferentes deportes acuáticos, como el windsurf, la vela, el paddle
-                                surf, el kayak o el snorkel, a nivel cultural cuenta con un rico patrimonio cultural,
-                                como el Castillo de
-                                Xivert, la Torre del Molino y la Ermita de Santa Lucía</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- Tarjetas con las imágenes y descripciones de las actividades -->
-                    <div class="col-md-3 mb-4">
-                        <div class="card" style="margin-left: 15px;">
-                            <img src="assets/santaluciaweb.jpg" class="card-img-top custom-img" alt="Actividad 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Ermita de Santa Lucía</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <div class="card">
-                            <img src="assets/aquarama.jpg" class="card-img-top custom-img" alt="Actividad 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Aquarama</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <div class="card">
-                            <img src="assets/xivert-1.png" class="card-img-top custom-img" alt="Actividad 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Castillo de Xivert </h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md mb-4">
-                        <div class="card">
-                            <img src="assets/sierra-de-irta-en-peñiscola.jpg" class="card-img-top custom-img"
-                                alt="Actividad 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Sierra de Irta</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </p>
+            <p> Es posible practicar diferentes deportes acuáticos, como el windsurf, la vela, el paddle
+              surf, el kayak o el snorkel, a nivel cultural cuenta con un rico patrimonio cultural,
+              como el <i>Castillo de
+                Xivert, la Torre del Molino y la Ermita de Santa Lucía</i></p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Tarjetas con las imágenes y descripciones de las actividades -->
+        <div class="col-md-3 mb-4">
+          <div class="card" style="margin-left: 15px;">
+            <img src="assets/santaluciaweb.jpg" class="card-img-top custom-img" alt="Actividad 1">
+            <div class="card-body">
+              <h5 [routerLink]="['/miviaje/comentarios/SantaLucia']" class="card-title link-detalles">Ermita de Santa
+                Lucía</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="assets/aquarama.jpg" class="card-img-top custom-img" alt="Actividad 2">
+            <div class="card-body">
+              <h5 class="card-title link-detalles" [routerLink]="['/miviaje/comentarios/Aquarama']">Aquarama</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="assets/xivert-1.png" class="card-img-top custom-img" alt="Actividad 3">
+            <div class="card-body">
+              <h5 class="card-title link-detalles" [routerLink]="['/miviaje/comentarios/CastilloXivert']">Castillo de
+                Xivert </h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md mb-4">
+          <div class="card">
+            <img src="assets/sierra-de-irta-en-peñiscola.jpg" class="card-img-top custom-img" alt="Actividad 3">
+            <div class="card-body">
+              <h5 class="card-title link-detalles" [routerLink]="['/miviaje/comentarios/SierraIrta']">Sierra de Irta
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            </section>
-        </main>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-        </script>
-    </body>
-    <app-footer></app-footer>
+    </section>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+  </script>
+</body>
+<app-footer></app-footer>
+
 </html>

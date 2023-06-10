@@ -12,11 +12,11 @@ import { ItinerarioResponse } from '../interfaces/responses';
 })
 export class ItinerarioService {
   constructor(private readonly http: HttpClient) {}
-
+  //obtiene los itinerarios de la persona cuyo email es el pasado por parametro
   getItinerarioByEmail(email:String):any {
     return this.http.get('itinerario/' + email);
   }
-
+  //se añade un nuevo itinerario
   addItinerario(itinerario: Itinerario): Observable<Itinerario> {
     return this.http
       .post<ItinerarioResponse>('itinerario', itinerario)

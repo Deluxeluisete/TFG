@@ -32,6 +32,7 @@ export class ViajeFormComponent {
   hastaControl!: FormControl<Date>;
   formItinerario!: FormGroup;
   saved = false;
+  usuario: any;
 
   constructor(
     private readonly itinerarioService: ItinerarioService,
@@ -53,7 +54,14 @@ export class ViajeFormComponent {
 
   ngOnInit(): void {
     this.resetItinerario();
+    if (localStorage.getItem('user') != '') {
+      this.usuario = JSON.parse(localStorage.getItem('user')!);
+      this.newItinerario.datos =
+        this.usuario.nombre + ' ' + this.usuario.apellidos;
 
+      this.newItinerario.email = this.usuario.email;
+      this.newItinerario.telefono = this.usuario.telefono;
+    }
     this.datosControl = this.fb.control('', [
       Validators.required,
       Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)+$'),
@@ -71,18 +79,18 @@ export class ViajeFormComponent {
     ]);
     this.desdeControl = this.fb.control(new Date(), [
       Validators.required,
-      Validators.pattern('^d{4}-d{2}-d{2}$'),
+      Validators.pattern('^[0-9]{4}-[0-9]{2}-[0-9]{2}$'),
     ]);
     this.hastaControl = this.fb.control(new Date(), [
       Validators.required,
-      Validators.pattern(/^\d{4}\/(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])$/),
+      Validators.pattern('^[0-9]{4}-[0-9]{2}-[0-9]{2}$'),
     ]);
 
     this.formItinerario = this.fb.group({
       datos: this.datosControl,
       email: this.emailControl,
       telefonoIti: this.telefonoItiControl,
-      destino:this.destinoControl,
+      destino: this.destinoControl,
       desde: this.desdeControl,
       hasta: this.hastaControl,
     });
@@ -100,23 +108,19 @@ export class ViajeFormComponent {
   }
 
   addItinerario() {
+    console.log(this.desdeControl.value);
     this.newItinerario.datos = this.datosControl.value;
     this.newItinerario.email = this.emailControl.value;
     this.newItinerario.telefono = this.telefonoItiControl.value;
     this.newItinerario.destino = this.destinoControl.value;
     this.newItinerario.desde = this.desdeControl.value;
     this.newItinerario.hasta = this.hastaControl.value;
-    console.log(this.newItinerario.datos);
-    console.log(this.newItinerario.email);
-    console.log(this.newItinerario.telefono);
-    console.log(this.newItinerario.destino);
-    console.log(this.newItinerario.desde);
-    console.log(this.newItinerario.hasta);
+    //se añade un itinerario
     this.itinerarioService
       .addItinerario(this.newItinerario)
       .subscribe((itinerario: any) => {
         this.saved = true;
-        this.router.navigate(['/auth/login']);
+        this.router.navigate(['/miviaje']);
       });
   }
   validClasses(control: FormControl, validClass: string, errorClass: string) {
