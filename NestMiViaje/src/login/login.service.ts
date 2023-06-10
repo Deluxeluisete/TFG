@@ -12,36 +12,45 @@ export class LoginService {
     @InjectModel('Login')
     private readonly loginModel: Model<Login>,
   ) {}
-
+  //listado de usuarios logueados
   async listar(): Promise<Login[]> {
     return await this.loginModel.find().exec();
   }
+  //buscar un usuario por id
   async buscarPorId(id: string): Promise<Login> {
     return await this.loginModel.findById(id).exec();
   }
+
+  //busca usuario por email
   async buscarPorEmail(email: string): Promise<Login> {
     return await this.loginModel.findOne({ email }).exec();
   }
+  //actualiza algunos campos del usuario
+  async actualizarUsuario(user: LoginDto): Promise<Login> {
+    const usuarioExistente = await this.loginModel.findOneAndUpdate(
+      { email: user.email },
+      {
+        $set: {
+          telefono: user.telefono,
+          nombre: user.nombre,
+          apellidos: user.apellidos,
+          contrasena: user.contrasena,
+          nacimiento: user.nacimiento,
+        },
+      },
+      { new: true },
+    );
+
+    return usuarioExistente;
+  }
+  //inserta un usuario
   async insertar(crearLoginDto: LoginDto): Promise<Login> {
     const nuevaLogin = new this.loginModel(crearLoginDto);
     return await nuevaLogin.save();
   }
+
+  //borra usuario por su id
   async borrar(id: string): Promise<Login> {
     return await this.loginModel.findByIdAndRemove(id).exec();
-  }
-
-  async actualizar(id: string, actualizarLoginDto: LoginDto): Promise<Login> {
-    return await this.loginModel
-      .findByIdAndUpdate(
-        id,
-        {
-          $set: {
-            login: actualizarLoginDto.nombre,
-            password: actualizarLoginDto.contrasena,
-          },
-        },
-        { new: true, runValidators: true },
-      )
-      .exec();
   }
 }

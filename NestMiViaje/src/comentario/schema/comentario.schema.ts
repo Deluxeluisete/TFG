@@ -1,5 +1,9 @@
 import * as mongoose from 'mongoose';
+//esquema de usuario para los comentarios , se usa este pq hay cosas que cambian respecto al otro
 export const LoginSchemaC = new mongoose.Schema({
+  imagen: {
+    type: String,
+  },
   nombre: {
     type: String,
     required: true,
@@ -26,7 +30,7 @@ export const LoginSchemaC = new mongoose.Schema({
     type: Date,
   },
 });
-
+//Esquema para los comentarios
 export const ComentarioSchema = new mongoose.Schema({
   tematica: {
     type: String,

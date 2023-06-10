@@ -16,7 +16,7 @@ import { scryptSync, randomBytes, timingSafeEqual } from 'crypto';
 @Controller('itinerario')
 export class ItinerarioController {
   constructor(private readonly itinerarioService: ItinerarioService) {}
-
+  //POST /itinerario
   @Post('')
   async insertarUsuarios(@Res() res, @Body() body) {
     try {
@@ -24,6 +24,16 @@ export class ItinerarioController {
       res.status(200).send({ ok: true, resultado: body });
     } catch (error) {
       res.status(404).send({ ok: false, resultado: 'error' });
+    }
+  }
+  //GET /itinerario/email
+  @Get(':email')
+  async obtenerItinerarioPorEmail(@Param('email') email: string) {
+    try {
+      const itinerarios = await this.itinerarioService.buscarPorEmail(email);
+      return itinerarios;
+    } catch (error) {
+      return 'error al obtener itinerairos';
     }
   }
 }

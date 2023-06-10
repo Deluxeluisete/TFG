@@ -16,41 +16,38 @@ export class ComentarioService {
     private readonly comentarioModel: Model<Comentario>,
     private readonly loginService: LoginService,
   ) {}
-
+  //Devuelve un listado de comentarios
   async listar(): Promise<Comentario[]> {
     return await this.comentarioModel.find().exec();
   }
+  //Busca un comentario por id
   async buscarPorId(id: string): Promise<Comentario> {
     return await this.comentarioModel.findById(id).exec();
   }
-
+  //Busca un comentario por el mail de la persona que lo haya puesto
   async buscarPorEmail(email: string): Promise<Comentario> {
     return await this.comentarioModel.findOne({ email }).exec();
   }
-  async insertar2(crearJuegoDto: ComentarioDto): Promise<Comentario> {
-    const nuevaJuego = new this.comentarioModel(crearJuegoDto);
-    return await nuevaJuego.save();
-  }
+  //inserta un comentario si el usuario que lo pone existe entre los usuarios registrados
   async insertar(crearComentarioDto: ComentarioDto): Promise<Comentario> {
     const logins: Login[] = await this.loginService.listar();
     const email = crearComentarioDto.Usuario.email;
     const loginExistente = logins.find((login) => login.email === email);
     if (!loginExistente) {
-      console.log('aaaaa');
       throw new Error(
         'El correo proporcionado no está registrado en la tabla de logins',
       );
     }
 
     const nuevoComentario = new this.comentarioModel(crearComentarioDto);
-    console.log(nuevoComentario);
     return await nuevoComentario.save();
   }
-
+  //borra comentario por su id
   async borrar(id: string): Promise<Comentario> {
     return await this.comentarioModel.findByIdAndRemove(id).exec();
   }
 
+  //actualiza un comentario por su id
   async actualizar(
     id: string,
     actualizarLoginDto: ComentarioDto,

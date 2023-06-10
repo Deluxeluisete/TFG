@@ -1,6 +1,9 @@
 import * as mongoose from 'mongoose';
 
 export const LoginSchema = new mongoose.Schema({
+  imagen: {
+    type: String,
+  },
   nombre: {
     type: String,
     required: true,
@@ -17,6 +20,7 @@ export const LoginSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
     match: /^[a-zA-Z0-9._%+-]+@gmail\.com$/,
   },
   telefono: {
@@ -26,5 +30,9 @@ export const LoginSchema = new mongoose.Schema({
   },
   nacimiento: {
     type: Date,
+  },
+  admin: {
+    type: Boolean,
+    required: true,
   },
 });
