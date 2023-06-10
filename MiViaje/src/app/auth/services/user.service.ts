@@ -45,8 +45,5 @@ export class UserService {
     return token !== null;
   }
 
-  // getUser(): any {
-  //   const userJson = localStorage.getItem('user');
-  //   return userJson ? JSON.parse(userJson) : null;
-  // }
+
 }
