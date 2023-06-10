@@ -108,7 +108,6 @@ export class ViajeFormComponent {
   }
 
   addItinerario() {
-    console.log(this.desdeControl.value);
     this.newItinerario.datos = this.datosControl.value;
     this.newItinerario.email = this.emailControl.value;
     this.newItinerario.telefono = this.telefonoItiControl.value;

@@ -25,75 +25,7 @@ export class UserService {
     return this.http.post<User>('auth/actualizausuario', user);
 
   }
-  // getMe(): Observable<User> {
-  //   return this.http.get<UserResponse>('users/me').pipe(
-  //     map((r) => r.user),
-  //     catchError((resp: HttpErrorResponse) =>
-  //       throwError(
-  //         () =>
-  //           `Error getting user. Status: ${resp.status}. Message: ${resp.message}`
-  //       )
-  //     )
-  //   );
-  // }
-  // getUserFs(id: number): Observable<User> {
-  //   if (isNaN(id)) {
-  //     return this.http.get<UserResponse>('users/me').pipe(
-  //       map((r) => r.user),
-  //       catchError((resp: HttpErrorResponse) =>
-  //         throwError(
-  //           () =>
-  //             `Error getting user. Status: ${resp.status}. Message: ${resp.message}`
-  //         )
-  //       )
-  //     );
-  //   } else {
-  //     return this.http.get<UserResponse>(`${'users'}/${id}`).pipe(
-  //       map((r) => r.user),
-  //       catchError((resp: HttpErrorResponse) =>
-  //         throwError(
-  //           () =>
-  //             `Error getting user. Status: ${resp.status}. Message: ${resp.message}`
-  //         )
-  //       )
-  //     );
-  //   }
-  // }
-  // editUserProfile(name: string, email: string): Observable<User> {
-  //   const profile = {
-  //     email: email,
-  //     name: name,
-  //   };
-  //   return this.http
-  //     .put<UserResponse>(`/users/me`, profile)
-  //     .pipe(map((u) => u.user));
-  // }
-  // saveAvatar(avatar: string): Observable<User> {
-  //   const profile = {
-  //     avatar: avatar,
-  //   };
-  //   return this.http
-  //     .put<UserResponse>(`/users/me/avatar`, profile)
-  //     .pipe(map((u) => u.user));
-  // }
-  // savePassword(password: string): Observable<User> {
-  //   const profile = {
-  //     password: password,
-  //   };
-  //   return this.http
-  //     .put<UserResponse>(`/users/me/password`, profile)
-  //     .pipe(map((u) => u.user));
-  // }
-  // logine(user: UserLogin) {
-  //   console.log('adios');
-  //   return this.http.post<any>(this.USERS_LOGIN_URL, user).pipe(
-  //     tap((response) => {
-  //       console.log('adios2');
 
-  //       localStorage.setItem('user', JSON.stringify(response.resultado));
-  //     })
-  //   );
-  // }
   getUsuario(email: string,contrasena: string): Observable<User> {
     const body = { email };
     return this.http.get<User>('auth/loginu', { params: { email,contrasena } });
