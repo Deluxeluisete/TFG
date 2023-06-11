@@ -37,9 +37,7 @@ export class LoginController {
       body.contrasena = `${salt}:${hashedPassword}`;
       await this.loginService.insertar(body);
       res.status(200).send({ ok: true, resultado: body });
-    } catch (error) {
-      res.render('publico_error', { error: 'Error al insertar el usuario' });
-    }
+    } catch (error) {}
   }
   //GET /auth/loginu
   @Get('loginu')
@@ -84,9 +82,6 @@ export class LoginController {
       req.session.usuario = user.email;
       res.status(200).send({ ok: true, resultado: user });
     } else {
-      res.render('auth_login', {
-        error: 'Error usuario o contraseña incorrecta',
-      });
     }
   }
   // POST /auth/register :
@@ -102,9 +97,6 @@ export class LoginController {
       }
       body.password = `${salt}:${hashedPassword}`;
       await this.loginService.insertar(body);
-      return res.render('auth_login');
-    } catch (error) {
-      res.render('publico_error', { error: 'Error al insertar el usuario' });
-    }
+    } catch (error) {}
   }
 }

@@ -12,7 +12,7 @@ import { LugarModule } from './lugar/lugar.module';
     LoginModule,
     ItinerarioModule,
     LugarModule,
-    MongooseModule.forRoot('mongodb://localhost/miviaje'),
+    MongooseModule.forRoot('mongodb://mymongodb/miviaje'),
     ComentarioModule,
   ],
   controllers: [AppController],
