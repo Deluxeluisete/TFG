@@ -56,14 +56,14 @@ export class LoginController {
         return user;
       }
     }
-    user.admin = false;
-    user.apellidos = '';
-    user.contrasena = '';
-    user.email = '';
-    user.nacimiento = new Date();
-    user.nombre = '';
-    user.telefono = '';
-    user.imagen = '';
+    // user.admin = false;
+    // user.apellidos = '';
+    // user.contrasena = '';
+    // user.email = '';
+    // user.nacimiento = new Date();
+    // user.nombre = '';
+    // user.telefono = '';
+    // user.imagen = '';
     return user;
   }
   //POST /auth/login
