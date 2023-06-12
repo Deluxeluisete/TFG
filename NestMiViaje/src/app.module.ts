@@ -12,7 +12,8 @@ import { LugarModule } from './lugar/lugar.module';
     LoginModule,
     ItinerarioModule,
     LugarModule,
-    MongooseModule.forRoot('mongodb://mymongodb/miviaje'),
+    MongooseModule.forRoot('mongodb://mymongodb/miviaje'), //despliegue
+    //MongooseModule.forRoot('mongodb://localhost/miviaje'), //local
     ComentarioModule,
   ],
   controllers: [AppController],
