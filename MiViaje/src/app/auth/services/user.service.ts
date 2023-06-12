@@ -18,7 +18,7 @@ export class UserService {
 
   addUser(user: User): Observable<User> {
     return this.http
-      .post<UserResponse>(':3000/auth/logina', user)
+      .post<UserResponse>('auth/logina', user)
       .pipe(map((resp) => resp.user));
   }
   updateUser(user: User): Observable<User> {
