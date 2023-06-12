@@ -5,10 +5,10 @@ export const baseUrlInterceptor: HttpInterceptorFn = (req, next) => {
   let serverUrl: string;
   if (isDevMode()) {
     // App in development mode
-    serverUrl = ''; // Development server url
+    serverUrl = 'http://vps-566481f2.vps.ovh.net:3000'; // Development server url
   } else {
     // App in production mode
-    serverUrl = ''; // Production server url
+    serverUrl = 'http://vps-566481f2.vps.ovh.net:3000'; // Production server url
   }
   const reqClone = req.clone({
     url: `${serverUrl}/${req.url}`,
